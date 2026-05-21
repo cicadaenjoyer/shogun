@@ -1,0 +1,14 @@
+# backend
+
+backend/Shogun/bin
+backend/Shogun/obj
+backend/Shogun/appsettings.Development.json
+
+*.env
+
+# misc
+.vs/
+.vscode/
+*.user
+.DS_Store
+Thumbs.db
