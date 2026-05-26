@@ -1,8 +1,10 @@
 # backend
-
 backend/Shogun/bin
 backend/Shogun/obj
 backend/Shogun/appsettings.Development.json
+*.db
+*.db-shm
+*.db-wal
 
 *.env
 
