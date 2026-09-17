@@ -1,0 +1,56 @@
+// Copy this file to "appsettings.Development.json" and edit the paths below.
+//
+//     cp appsettings.Development.json.example appsettings.Development.json
+//
+// appsettings.Development.json is in .gitignore, so your local copy stays on
+// your machine. This template is committed so a fresh clone has a starting
+// point. Both files are for DEVELOPMENT ONLY and are never read on the server
+// machine, which uses environment variables instead.
+//
+// SECRETS DO NOT GO IN EITHER FILE. Use user secrets, which live outside the
+// repository entirely:
+//
+//     dotnet user-secrets set "Hub:ServerCredential" "the-value" --project Shogun.Server
+//
+// (JSON doesn't normally allow comments, but ASP.NET Core's configuration
+// reader skips them, so this file works as-is once copied.)
+{
+    "Logging": {
+        "LogLevel": {
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
+        }
+    },
+
+    // Used by "make jwt-create" for local API testing. Replaced in Phase 2A by
+    // real server passes issued by the Hub.
+    "Authentication": {
+        "Schemes": {
+            "Bearer": {
+                "ValidAudiences": [
+                    "http://localhost:5265",
+                    "https://localhost:7018"
+                ],
+                "ValidIssuer": "dotnet-user-jwts"
+            }
+        }
+    },
+
+    // Browser origins allowed to call this Server. 5173 is Vite's default dev
+    // port, for the web app arriving in Phase 4. No trailing slashes.
+    "Web": {
+        "AllowedOrigins": [
+            "http://localhost:5173",
+            "https://shogun-hub.web.app"
+        ]
+    },
+
+    // EDIT THESE. Must be absolute paths that your user can write to; the
+    // Server creates them on first start. On Linux/macOS, swap in your username;
+    // on Windows use something like "C:\\Users\\you\\AppData\\Local\\shogun\\data".
+    "Storage": {
+        "DataFolder": "/home/YOUR-USERNAME/.local/share/shogun/data",
+        "ImageCacheFolder": "/home/YOUR-USERNAME/.local/share/shogun/cache/images",
+        "TranscodeTempFolder": "/home/YOUR-USERNAME/.local/share/shogun/cache/transcode"
+    }
+}
