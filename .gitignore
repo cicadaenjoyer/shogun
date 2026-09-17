@@ -1,16 +1,78 @@
-# backend
-backend/Shogun/bin
-backend/Shogun/obj
-backend/Shogun/appsettings.Development.json
+# ---------------------------------------------------------------------------
+# Secrets
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Firebase service-account / admin credentials
+**/serviceAccountKey.json
+**/*-firebase-adminsdk-*.json
+
+# ---------------------------------------------------------------------------
+# backend/
+# ---------------------------------------------------------------------------
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+TestResults/
+*.user
+*.suo
+
+# Local dev settings (may hold connection strings / secrets)
+appsettings.Development.json
+appsettings.Local.json
+
+# SQLite database + its journal files
 *.db
 *.db-shm
 *.db-wal
 
-*.env
+# ---------------------------------------------------------------------------
+# web/, firebase/functions/, shared/
+# ---------------------------------------------------------------------------
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+npm-debug.log*
+yarn-error.log*
 
-# misc
+# Build output
+dist/
+build/
+out/
+.vite/
+*.tsbuildinfo
+
+# Test & tooling caches
+coverage/
+.eslintcache
+.turbo/
+
+# ---------------------------------------------------------------------------
+# firebase/
+# ---------------------------------------------------------------------------
+.firebase/
+firebase-debug.log*
+firebase-debug.*.log*
+firestore-debug.log*
+database-debug.log*
+pubsub-debug.log*
+ui-debug.log*
+# Emulator data exported with --export-on-exit
+emulator-data/
+.runtimeconfig.json
+# Compiled Cloud Functions output
+firebase/functions/lib/
+
+# ---------------------------------------------------------------------------
+# Editors & OS
+# ---------------------------------------------------------------------------
 .vs/
 .vscode/
-*.user
+.idea/
+*.swp
 .DS_Store
 Thumbs.db
