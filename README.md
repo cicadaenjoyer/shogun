@@ -51,14 +51,18 @@ This is a monorepo containing the server, cloud functions, and web client.
 ```text
 shogun/
 ├── backend/
-│   └── Shogun/            # Shogun Server (ASP.NET Core Web API)
-│       ├── Controllers/   # HTTP endpoints
-│       ├── Data/          # EF Core DbContext and entity configurations
-│       ├── Migrations/    # EF Core database migrations
-│       └── Models/        # Domain entities (movies, TV, music)
-├── firebase/              # Shogun Hub: Cloud Functions and security rules (planned)
-├── web/                   # Shogun Web: React + Vite client (planned)
-└── shared/                # Shared schemas and TypeScript types (planned)
+│   ├── Shogun.slnx            # Solution: every .NET project below
+│   ├── Makefile               # Shortcuts for build, run, migrations
+│   └── Shogun.Server/         # Shogun Server (ASP.NET Core Web API)
+│       ├── Controllers/       # HTTP endpoints
+│       ├── Data/              # EF Core DbContext and entity configurations
+│       ├── Migrations/        # EF Core database migrations
+│       └── Models/            # Domain entities (movies, TV, music)
+├── docs/roadmap/              # Phase-by-phase build plan
+├── firebase/                  # Shogun Hub: Cloud Functions and security rules (planned)
+├── web/                       # Shogun Web: React + Vite client (planned)
+├── shared/                    # Shared schemas and TypeScript types (planned)
+└── pnpm-workspace.yaml        # Ties firebase/, web/, and shared/ together
 ```
 
 ## Getting Started
@@ -76,30 +80,32 @@ shogun/
 
 ### Running the Server
 
-From `backend/Shogun`:
+From `backend/`:
 
 ```bash
-# Restore packages and build
+# Restore packages and build every project in the solution
 dotnet build
 
 # Create the local SQLite database from the migrations
-dotnet ef database update
+dotnet ef database update --project Shogun.Server
 
 # Start the server
-dotnet run
+dotnet run --project Shogun.Server
 ```
 
 The API listens on `http://localhost:5265` by default. In the Development environment, interactive API documentation is available at `http://localhost:5265/swagger`.
 
 ### Development Commands
 
-A Makefile in `backend/Shogun` wraps common tasks:
+A Makefile in `backend/` wraps common tasks:
 
 | Command                             | Description                                |
 | ----------------------------------- | ------------------------------------------ |
 | `make`                              | Run the server                             |
-| `make build`                        | Build the project                          |
+| `make build`                        | Build every project in the solution        |
+| `make test`                         | Run the tests                              |
 | `make migrate NAME=<MigrationName>` | Create a new EF Core migration             |
+| `make db-update`                    | Apply migrations to the local database     |
 | `make jwt-create NAME=<username>`   | Create a development JWT for local testing |
 | `make jwt-list`                     | List development JWTs                      |
 | `make jwt-list-user ID=<token-id>`  | Show the details of a development JWT      |
