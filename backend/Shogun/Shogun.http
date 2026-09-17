@@ -1,6 +1,0 @@
-@Shogun_HostAddress = http://localhost:5265
-
-GET {{Shogun_HostAddress}}/user/
-Accept: application/json
-
-###
