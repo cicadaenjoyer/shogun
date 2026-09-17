@@ -119,4 +119,4 @@ Server settings are read from `appsettings.json`, then overridden by [.NET user 
 
 ## License
 
-A license has not yet been selected.
+Shogun is licensed under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for attribution.
