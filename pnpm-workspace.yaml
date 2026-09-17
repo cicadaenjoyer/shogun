@@ -1,0 +1,8 @@
+packages:
+    # Cloud Functions for the Hub (TypeScript). The rest of firebase/ holds
+    # config and rules files.
+    - "firebase/functions"
+    # The React + Vite web app.
+    - "web"
+    # Shared TypeScript packages (theme tokens, generated API types, ...).
+    - "shared/*"
