@@ -1,4 +1,4 @@
-namespace Shogun.Server.Models;
+namespace Shogun.Server.Entities;
 
 public class Track
 {
