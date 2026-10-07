@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Shogun.Server.Models;
+using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data;
 

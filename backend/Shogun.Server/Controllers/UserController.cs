@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Shogun.Server.Models;
+using Shogun.Server.Entities;
 
 namespace Shogun.Server.Controllers;
 
