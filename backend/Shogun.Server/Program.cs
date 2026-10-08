@@ -5,6 +5,7 @@ using Shogun.Server.Options;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Override("Microsoft.AspNetCore", Serilog.Events.LogEventLevel.Warning)
     .WriteTo.Console()
     .CreateLogger();
 
