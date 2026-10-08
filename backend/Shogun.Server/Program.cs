@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Shogun.Server.Data;
 using Shogun.Server.Options;
+using Shogun.Server.Services;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -48,13 +49,18 @@ try
     builder.Services.AddAuthorization();
     builder.Services.AddAuthentication("Bearer").AddJwtBearer();
 
-    // Controllers & Database
+    // Controllers
     builder.Services.AddControllers();
-    builder.Services.AddOpenApi();
+
+    // Databases
     builder.Services.AddDbContext<ShogunDbContext>(opt =>
     {
         opt.UseSqlite(builder.Configuration.GetConnectionString("Default"));
     });
+
+    // API & Controllers
+    builder.Services.AddOpenApi();
+    builder.Services.AddSingleton<HealthService>();
 
     var app = builder.Build();
 
