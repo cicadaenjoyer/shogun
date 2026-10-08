@@ -3,6 +3,7 @@ namespace Shogun.Server.Entities;
 public class Movie
 {
     public int Id { get; set; }
+    public int LibraryId { get; set; }
     public required string Title { get; set; }
     public int Year { get; set; }
     public string? Genre { get; set; }
@@ -12,4 +13,5 @@ public class Movie
     public required string FilePath { get; set; }
     public long FileSize { get; set; }
     public DateTime AddedAt { get; set; }
+    public Library Library { get; set; } = null!;
 }
