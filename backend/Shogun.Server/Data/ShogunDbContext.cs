@@ -13,6 +13,7 @@ public class ShogunDbContext : DbContext
     // Tables
 
     // User
+    public DbSet<Member> Members { get; set; } = null!;
     public DbSet<WatchHistory> WatchHistories { get; set; } = null!;
 
     // TV
@@ -28,11 +29,18 @@ public class ShogunDbContext : DbContext
     // Movie
     public DbSet<Movie> Movies { get; set; } = null!;
 
-    // loads every configuration class automatically
     #region Required
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // loads every configuration class automatically
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ShogunDbContext).Assembly);
+    }
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+        // converts all enums to their String values
+        configurationBuilder
+            .Properties<Enum>()
+            .HaveConversion<string>();
     }
     #endregion
 }
