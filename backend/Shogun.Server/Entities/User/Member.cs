@@ -20,5 +20,9 @@ public class Member
     public required MemberRole Role { get; set; }
     public required MemberStatus Status { get; set; }
     public DateTime? LastSeenAt { get; set; }
-
+    // null in this case means "No Limit"
+    public int? MaxStreamingBitrateKbps { get; set; }
+    public bool DownloadsAllowed { get; set; } = true;
+    // TODO: join table
+    // public ICollection<Library> AllowedLibraries { get; set; }
 }
