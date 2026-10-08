@@ -13,7 +13,6 @@ public class ShogunDbContext : DbContext
     // Tables
 
     // User
-    public DbSet<User> Users { get; set; } = null!;
     public DbSet<WatchHistory> WatchHistories { get; set; } = null!;
 
     // TV
