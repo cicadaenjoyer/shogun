@@ -12,6 +12,9 @@ public class ShogunDbContext : DbContext
 
     // Tables
 
+    // Library
+    public DbSet<Library> Libraries { get; set; } = null!;
+
     // User
     public DbSet<Member> Members { get; set; } = null!;
     public DbSet<WatchHistory> WatchHistories { get; set; } = null!;
