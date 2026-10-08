@@ -1,6 +1,6 @@
 @Shogun_Server_HostAddress = http://localhost:5265
 
-GET {{Shogun_Server_HostAddress}}/api/user/
+GET {{Shogun_Server_HostAddress}}/api/v1/health/
 Accept: application/json
 
 ###
