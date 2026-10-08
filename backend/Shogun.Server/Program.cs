@@ -62,9 +62,14 @@ try
     builder.Services.AddOpenApi();
     builder.Services.AddSingleton<HealthService>();
 
+    // Problem Details
+    builder.Services.AddProblemDetails();
+
     var app = builder.Build();
 
     app.UseSerilogRequestLogging();
+    app.UseExceptionHandler();
+    app.UseStatusCodePages();
 
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
