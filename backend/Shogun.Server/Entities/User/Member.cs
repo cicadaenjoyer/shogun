@@ -23,6 +23,5 @@ public class Member
     // null in this case means "No Limit"
     public int? MaxStreamingBitrateKbps { get; set; }
     public bool DownloadsAllowed { get; set; } = true;
-    // TODO: join table
-    // public ICollection<Library> AllowedLibraries { get; set; }
+    public ICollection<Library> AllowedLibraries { get; set; } = [];
 }
