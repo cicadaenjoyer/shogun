@@ -14,6 +14,7 @@ public class ShogunDbContext : DbContext
 
     // Library
     public DbSet<Library> Libraries { get; set; } = null!;
+    public DbSet<LibraryPath> LibraryPaths { get; set; } = null!;
 
     // User
     public DbSet<Member> Members { get; set; } = null!;
