@@ -10,9 +10,6 @@ public class TrackEntityConfiguration : IEntityTypeConfiguration<Track>
     {
         builder.Property(t => t.Title)
             .HasMaxLength(255);
-        
-        builder.HasIndex(t => t.FilePath)
-            .IsUnique();
 
         builder.HasIndex(t => new { t.AlbumId, t.TrackNumber })
             .IsUnique();

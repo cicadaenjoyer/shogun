@@ -10,10 +10,7 @@ public class MovieEntityConfiguration : IEntityTypeConfiguration<Movie>
     {
         builder.Property(m => m.Title)
             .HasMaxLength(255);
-        
-        builder.HasIndex(m => m.FilePath)
-            .IsUnique();
-
+            
         builder.Property(m => m.AddedAt)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
     }
