@@ -10,8 +10,6 @@ public class Movie
     public int Runtime { get; set; }
     public string? Overview { get; set; }
     public string? PosterUrl { get; set; }
-    public required string FilePath { get; set; }
-    public long FileSize { get; set; }
     public DateTime AddedAt { get; set; }
     public Library Library { get; set; } = null!;
 }

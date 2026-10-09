@@ -7,8 +7,6 @@ public class Track
     public required string Title { get; set; }
     public int TrackNumber { get; set; }
     public int Duration { get; set; }
-    public required string FilePath { get; set; }
-    public long FileSize { get; set; }
 
     public Album Album { get; set; } = null!;
 }

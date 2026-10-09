@@ -8,8 +8,6 @@ public class Episode
     public int EpisodeNumber { get; set; }
     public int Runtime { get; set; }
     public string? Overview { get; set; }
-    public required string FilePath { get; set; }
-    public long FileSize { get; set; }
 
     public Season Season { get; set; } = null!;
 }
