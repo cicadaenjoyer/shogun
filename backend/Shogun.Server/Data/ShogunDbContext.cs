@@ -20,6 +20,9 @@ public class ShogunDbContext : DbContext
     public DbSet<MediaFile> MediaFiles { get; set; } = null!;
     public DbSet<MediaStream> MediaStreams { get; set; } = null!;
 
+    // Metadata
+    public DbSet<Genre> Genres { get; set; } = null!;
+
     // User
     public DbSet<Member> Members { get; set; } = null!;
     public DbSet<WatchHistory> WatchHistories { get; set; } = null!;
