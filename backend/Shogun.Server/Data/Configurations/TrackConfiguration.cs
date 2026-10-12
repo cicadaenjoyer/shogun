@@ -11,7 +11,12 @@ public class TrackEntityConfiguration : IEntityTypeConfiguration<Track>
         builder.Property(t => t.Title)
             .HasMaxLength(255);
 
+        builder.Property(t => t.MusicBrainzId)
+            .HasMaxLength(36);
+
         builder.HasIndex(t => new { t.AlbumId, t.TrackNumber })
             .IsUnique();
+
+        builder.HasIndex(t => t.MusicBrainzId);
     }
 }

@@ -10,8 +10,21 @@ public class MovieEntityConfiguration : IEntityTypeConfiguration<Movie>
     {
         builder.Property(m => m.Title)
             .HasMaxLength(255);
-            
+
+        builder.Property(m => m.SortTitle)
+            .HasMaxLength(255);
+
+        builder.Property(m => m.ImdbId)
+            .HasMaxLength(16);
+
         builder.Property(m => m.AddedAt)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        builder.HasIndex(m => m.TmdbId);
+
+        builder.HasIndex(m => m.ImdbId);
+
+        builder.HasMany(m => m.Genres)
+            .WithMany();
     }
 }
