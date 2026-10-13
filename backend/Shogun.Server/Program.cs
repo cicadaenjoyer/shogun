@@ -67,6 +67,14 @@ try
 
     var app = builder.Build();
 
+    // Turning on WAL mode
+    using (var scope = app.Services.CreateScope())
+    {
+        var db = scope.ServiceProvider.GetRequiredService<ShogunDbContext>();
+
+        db.Database.ExecuteSqlRaw("PRAGMA journal_mode = WAL");
+    }
+
     app.UseSerilogRequestLogging();
     app.UseExceptionHandler();
     app.UseStatusCodePages();
