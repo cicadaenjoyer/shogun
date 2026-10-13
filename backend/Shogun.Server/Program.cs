@@ -67,12 +67,13 @@ try
 
     var app = builder.Build();
 
-    // Turning on WAL mode
+    // Turning on WAL mode and running migrations
     using (var scope = app.Services.CreateScope())
     {
         var db = scope.ServiceProvider.GetRequiredService<ShogunDbContext>();
 
         db.Database.ExecuteSqlRaw("PRAGMA journal_mode = WAL");
+        db.Database.Migrate();
     }
 
     app.UseSerilogRequestLogging();
