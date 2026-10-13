@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Shogun.Server.Data.Converters;
 using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data;
@@ -52,6 +53,12 @@ public class ShogunDbContext : DbContext
         configurationBuilder
             .Properties<Enum>()
             .HaveConversion<string>();
+
+        // converts all DateTime objects into UTC format before
+        // registering it to the db
+        configurationBuilder
+            .Properties<DateTime>()
+            .HaveConversion<UtcDateTimeConverter>();
     }
     #endregion
 }
