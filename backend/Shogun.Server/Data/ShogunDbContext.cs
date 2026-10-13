@@ -25,7 +25,7 @@ public class ShogunDbContext : DbContext
 
     // User
     public DbSet<Member> Members { get; set; } = null!;
-    public DbSet<WatchHistory> WatchHistories { get; set; } = null!;
+    public DbSet<PlaybackState> PlaybackStates { get; set; } = null!;
 
     // TV
     public DbSet<TvShow> TvShows { get; set; } = null!;
