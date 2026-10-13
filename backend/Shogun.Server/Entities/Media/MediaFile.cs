@@ -5,7 +5,6 @@ public class MediaFile
     public int Id { get; set; }
     public int? MovieId { get; set; }
     public int? EpisodeId { get; set; }
-
     public int? TrackId { get; set; }
     public required string FilePath { get; set; }
     public long FileSize { get; set; }

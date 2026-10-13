@@ -8,7 +8,7 @@ public class SeasonEntityConfiguration : IEntityTypeConfiguration<Season>
 {
     public void Configure(EntityTypeBuilder<Season> builder)
     {
-        builder.HasIndex(s => new {s.SeasonNumber, s.TvShowId})
+        builder.HasIndex(s => new { s.TvShowId, s.SeasonNumber })
             .IsUnique();
     }
 }

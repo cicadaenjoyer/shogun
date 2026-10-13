@@ -11,7 +11,7 @@ public class EpisodeEntityConfiguration : IEntityTypeConfiguration<Episode>
         builder.Property(e => e.Title)
             .HasMaxLength(255);
 
-        builder.HasIndex(m => new { m.EpisodeNumber, m.SeasonId })
+        builder.HasIndex(e => new { e.SeasonId, e.EpisodeNumber })
             .IsUnique();
     }
 }
