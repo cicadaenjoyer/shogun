@@ -13,6 +13,6 @@ public class Library
     public required string Name { get; set; }
     public ICollection<Member> Members { get; set; } = [];
     public ICollection<LibraryPath> Folders { get; set; } = [];
-    public LibraryType Type { get; set; }
+    public required LibraryType Type { get; set; }
     public DateTime? LastScannedAt { get; set; }
 }
