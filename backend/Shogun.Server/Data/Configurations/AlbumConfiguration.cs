@@ -17,8 +17,7 @@ public class AlbumEntityConfiguration : IEntityTypeConfiguration<Album>
         builder.Property(a => a.MusicBrainzId)
             .HasMaxLength(36);
 
-        builder.HasIndex(a => new { a.ArtistId, a.Title })
-            .IsUnique();
+        builder.HasIndex(a => new { a.ArtistId, a.Title });
 
         builder.HasIndex(a => a.MusicBrainzId);
 
