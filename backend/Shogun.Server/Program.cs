@@ -1,3 +1,4 @@
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Shogun.Server.Data;
@@ -53,9 +54,13 @@ try
     builder.Services.AddControllers();
 
     // Databases
-    builder.Services.AddDbContext<ShogunDbContext>(opt =>
+    builder.Services.AddDbContext<ShogunDbContext>((services, opt) =>
     {
-        opt.UseSqlite(builder.Configuration.GetConnectionString("Default"));
+        // The database lives in the data folder, so its path comes from StorageOptions
+        var storage = services.GetRequiredService<IOptions<StorageOptions>>().Value;
+        var connection = new SqliteConnectionStringBuilder { DataSource = storage.DatabasePath };
+
+        opt.UseSqlite(connection.ToString());
     });
 
     // API & Controllers
