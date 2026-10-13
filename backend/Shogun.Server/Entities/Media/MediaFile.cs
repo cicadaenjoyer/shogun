@@ -3,6 +3,7 @@ namespace Shogun.Server.Entities;
 public class MediaFile
 {
     public int Id { get; set; }
+    public int LibraryPathId { get; set; }
     public int? MovieId { get; set; }
     public int? EpisodeId { get; set; }
     public int? TrackId { get; set; }
@@ -13,6 +14,7 @@ public class MediaFile
     public int? BitrateKbps { get; set; }
     public DateTime LastModifiedAt { get; set; }
     public bool IsMissing { get; set; }
+    public LibraryPath LibraryPath { get; set; } = null!;
     public Movie? Movie { get; set; }
     public Episode? Episode { get; set; }
     public Track? Track { get; set; }
