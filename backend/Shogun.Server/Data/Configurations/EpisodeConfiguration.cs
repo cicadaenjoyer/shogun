@@ -13,5 +13,9 @@ public class EpisodeEntityConfiguration : IEntityTypeConfiguration<Episode>
 
         builder.HasIndex(e => new { e.SeasonId, e.EpisodeNumber })
             .IsUnique();
+
+        builder.HasOne(e => e.Season)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

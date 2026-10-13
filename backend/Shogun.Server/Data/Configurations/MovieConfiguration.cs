@@ -26,5 +26,9 @@ public class MovieEntityConfiguration : IEntityTypeConfiguration<Movie>
 
         builder.HasMany(m => m.Genres)
             .WithMany();
+
+        builder.HasOne(m => m.Library)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

@@ -23,5 +23,9 @@ public class AlbumEntityConfiguration : IEntityTypeConfiguration<Album>
 
         builder.HasMany(a => a.Genres)
             .WithMany();
+
+        builder.HasOne(a => a.Artist)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

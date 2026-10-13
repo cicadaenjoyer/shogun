@@ -10,5 +10,9 @@ public class SeasonEntityConfiguration : IEntityTypeConfiguration<Season>
     {
         builder.HasIndex(s => new { s.TvShowId, s.SeasonNumber })
             .IsUnique();
+
+        builder.HasOne(s => s.TvShow)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

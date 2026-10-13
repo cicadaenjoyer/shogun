@@ -22,5 +22,9 @@ public class PlaybackStateEntityConfiguration : IEntityTypeConfiguration<Playbac
         builder.ToTable(p => p.HasCheckConstraint(
             "CK_PlaybackStates_ExactlyOneWork",
             "(\"MovieId\" IS NOT NULL) + (\"EpisodeId\" IS NOT NULL) + (\"TrackId\" IS NOT NULL) = 1"));
+
+        builder.HasOne(p => p.Member)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

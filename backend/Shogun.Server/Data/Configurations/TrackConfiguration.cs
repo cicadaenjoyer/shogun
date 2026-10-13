@@ -24,5 +24,9 @@ public class TrackEntityConfiguration : IEntityTypeConfiguration<Track>
 
         builder.HasMany(t => t.Artists)
             .WithMany();
+
+        builder.HasOne(t => t.Album)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

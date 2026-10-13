@@ -8,7 +8,11 @@ public class LibraryPathEntityConfiguration : IEntityTypeConfiguration<LibraryPa
 {
     public void Configure(EntityTypeBuilder<LibraryPath> builder)
     {
-        builder.HasIndex(p => p.Path)
+        builder.HasIndex(lp => lp.Path)
             .IsUnique();
+
+        builder.HasOne(lp => lp.Library)
+            .WithMany(l => l.Folders)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

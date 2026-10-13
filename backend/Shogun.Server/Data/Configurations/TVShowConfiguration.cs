@@ -23,5 +23,9 @@ public class TVShowEntityConfiguration : IEntityTypeConfiguration<TvShow>
 
         builder.HasMany(t => t.Genres)
             .WithMany();
+
+        builder.HasOne(t => t.Library)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

@@ -14,5 +14,9 @@ public class MediaFileEntityConfiguration : IEntityTypeConfiguration<MediaFile>
         builder.ToTable(t => t.HasCheckConstraint(
             "CK_MediaFiles_AtMostOneWork",
             "(\"MovieId\" IS NOT NULL) + (\"EpisodeId\" IS NOT NULL) + (\"TrackId\" IS NOT NULL) <= 1"));
+
+        builder.HasOne(f => f.LibraryPath)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
