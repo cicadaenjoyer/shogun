@@ -26,5 +26,17 @@ public class PlaybackStateEntityConfiguration : IEntityTypeConfiguration<Playbac
         builder.HasOne(p => p.Member)
             .WithMany()
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasOne(p => p.Movie)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
+        
+        builder.HasOne(p => p.Episode)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasOne(p => p.Track)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

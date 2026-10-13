@@ -18,5 +18,17 @@ public class MediaFileEntityConfiguration : IEntityTypeConfiguration<MediaFile>
         builder.HasOne(f => f.LibraryPath)
             .WithMany()
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasOne(f => f.Movie)
+            .WithMany()
+            .OnDelete(DeleteBehavior.SetNull);
+        
+        builder.HasOne(f => f.Episode)
+            .WithMany()
+            .OnDelete(DeleteBehavior.SetNull);
+
+        builder.HasOne(f => f.Track)
+            .WithMany()
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }
