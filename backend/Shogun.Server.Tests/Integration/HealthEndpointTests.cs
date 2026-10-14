@@ -6,6 +6,9 @@ using Shouldly;
 
 namespace Shogun.Server.Tests.Integration;
 
+/// <summary>
+/// Integration tests: sends real HTTP requests to the Server running in memory.
+/// </summary>
 public class HealthEndpointTests : IClassFixture<ShogunApiFactory>
 {
     private readonly HttpClient _client;

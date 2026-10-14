@@ -1,5 +1,9 @@
 namespace Shogun.Server.Entities;
 
+/// <summary>
+/// A movie in a library. This is the work itself; its files on disk are
+/// <see cref="MediaFile"/> rows.
+/// </summary>
 public class Movie
 {
     public int Id { get; set; }

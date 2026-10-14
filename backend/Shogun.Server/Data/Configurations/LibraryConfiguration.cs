@@ -4,6 +4,9 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for libraries: column lengths.
+/// </summary>
 public class LibraryEntityConfiguration : IEntityTypeConfiguration<Library>
 {
     public void Configure(EntityTypeBuilder<Library> builder)

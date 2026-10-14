@@ -1,5 +1,9 @@
 namespace Shogun.Server.Entities;
 
+/// <summary>
+/// One track on an album. Its files on disk are <see cref="MediaFile"/> rows.
+/// The track's own artists are only filled in when they differ from the album artist.
+/// </summary>
 public class Track
 {
     public int Id { get; set; }

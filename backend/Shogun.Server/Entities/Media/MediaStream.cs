@@ -1,5 +1,8 @@
 namespace Shogun.Server.Entities;
 
+/// <summary>
+/// The kind of stream inside a media file.
+/// </summary>
 public enum StreamType
 {
     Video,
@@ -7,12 +10,18 @@ public enum StreamType
     Subtitle
 }
 
+/// <summary>
+/// Whether a subtitle stream is text or image-based.
+/// </summary>
 public enum SubtitleType
 {
     Text,
     Image
 }
 
+/// <summary>
+/// One stream inside a media file: a video, audio, or subtitle track.
+/// </summary>
 public class MediaStream
 {
     public int Id { get; set; }

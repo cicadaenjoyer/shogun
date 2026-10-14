@@ -4,6 +4,10 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for artists: column lengths, the MusicBrainz index, genre
+/// links, and deletion along with the library.
+/// </summary>
 public class ArtistEntityConfiguration : IEntityTypeConfiguration<Artist>
 {
     public void Configure(EntityTypeBuilder<Artist> builder)

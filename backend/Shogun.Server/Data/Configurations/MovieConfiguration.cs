@@ -4,6 +4,10 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for movies: column lengths, external ID indexes, genre links,
+/// and deletion along with the library.
+/// </summary>
 public class MovieEntityConfiguration : IEntityTypeConfiguration<Movie>
 {
     public void Configure(EntityTypeBuilder<Movie> builder)

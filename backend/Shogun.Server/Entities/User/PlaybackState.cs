@@ -1,5 +1,9 @@
 namespace Shogun.Server.Entities;
 
+/// <summary>
+/// One member's progress through one movie, episode, or track. Exactly one of
+/// the three links is set.
+/// </summary>
 public class PlaybackState
 {
     public int Id { get; set; }

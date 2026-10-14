@@ -1,5 +1,8 @@
 namespace Shogun.Server.Entities;
 
+/// <summary>
+/// One episode of a season. Its files on disk are <see cref="MediaFile"/> rows.
+/// </summary>
 public class Episode
 {
     public int Id { get; set; }

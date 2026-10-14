@@ -5,6 +5,9 @@ using Shouldly;
 
 namespace Shogun.Server.Tests.Unit;
 
+/// <summary>
+/// Unit tests for <see cref="HealthService"/>, using a temporary data folder.
+/// </summary>
 public class HealthServiceTests : IDisposable
 {
     private readonly TempFolder _dataFolder = new();

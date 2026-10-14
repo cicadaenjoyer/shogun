@@ -1,5 +1,9 @@
 namespace Shogun.Server.Entities;
 
+/// <summary>
+/// One folder on disk that belongs to a library. A folder belongs to exactly
+/// one library.
+/// </summary>
 public class LibraryPath
 {
     public int Id { get; set; }

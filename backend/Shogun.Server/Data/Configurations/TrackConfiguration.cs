@@ -4,6 +4,10 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for tracks: one track number per disc of an album, artist
+/// links, and deletion along with the album.
+/// </summary>
 public class TrackEntityConfiguration : IEntityTypeConfiguration<Track>
 {
     public void Configure(EntityTypeBuilder<Track> builder)

@@ -4,6 +4,10 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for playback progress: one row per member and item, exactly
+/// one linked item, and deletion along with the member or the item.
+/// </summary>
 public class PlaybackStateEntityConfiguration : IEntityTypeConfiguration<PlaybackState>
 {
     public void Configure(EntityTypeBuilder<PlaybackState> builder)

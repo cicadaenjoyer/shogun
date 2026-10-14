@@ -4,6 +4,10 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for library folders: a path is used by one library only, and
+/// folders are deleted along with their library.
+/// </summary>
 public class LibraryPathEntityConfiguration : IEntityTypeConfiguration<LibraryPath>
 {
     public void Configure(EntityTypeBuilder<LibraryPath> builder)

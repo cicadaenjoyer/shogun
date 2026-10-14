@@ -4,6 +4,10 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data;
 
+/// <summary>
+/// The Server's database: one set per table, plus the rules that apply to every
+/// entity.
+/// </summary>
 public class ShogunDbContext : DbContext
 {
     public ShogunDbContext(DbContextOptions<ShogunDbContext> options)

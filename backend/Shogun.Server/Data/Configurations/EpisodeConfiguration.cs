@@ -4,6 +4,10 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for episodes: one episode number per season, and deletion
+/// along with the season.
+/// </summary>
 public class EpisodeEntityConfiguration : IEntityTypeConfiguration<Episode>
 {
     public void Configure(EntityTypeBuilder<Episode> builder)

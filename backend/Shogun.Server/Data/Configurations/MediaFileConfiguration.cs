@@ -4,6 +4,10 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for media files: unique paths, at most one linked work, and
+/// what happens when the folder or the work is deleted.
+/// </summary>
 public class MediaFileEntityConfiguration : IEntityTypeConfiguration<MediaFile>
 {
     public void Configure(EntityTypeBuilder<MediaFile> builder)

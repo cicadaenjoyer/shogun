@@ -1,5 +1,8 @@
 namespace Shogun.Server.Entities;
 
+/// <summary>
+/// A TV show in a library. Its seasons and episodes belong to it.
+/// </summary>
 public class TvShow
 {
     public int Id { get; set; }

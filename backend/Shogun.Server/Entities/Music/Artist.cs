@@ -1,5 +1,9 @@
 namespace Shogun.Server.Entities;
 
+/// <summary>
+/// A music artist in a library. Owns albums, and can also be credited on
+/// individual tracks.
+/// </summary>
 public class Artist
 {
     public int Id { get; set; }

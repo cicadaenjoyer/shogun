@@ -4,6 +4,9 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for media streams: deleted along with their file.
+/// </summary>
 public class MediaStreamEntityConfiguration : IEntityTypeConfiguration<MediaStream>
 {
     public void Configure(EntityTypeBuilder<MediaStream> builder)

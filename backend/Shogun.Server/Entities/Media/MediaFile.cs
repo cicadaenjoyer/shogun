@@ -1,5 +1,9 @@
 namespace Shogun.Server.Entities;
 
+/// <summary>
+/// A file on disk, as found by the scanner. Once identified it is linked to the
+/// movie, episode, or track it contains; until then it has none.
+/// </summary>
 public class MediaFile
 {
     public int Id { get; set; }

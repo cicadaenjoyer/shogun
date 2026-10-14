@@ -1,5 +1,8 @@
 namespace Shogun.Server.Entities;
 
+/// <summary>
+/// An album, belonging to exactly one album artist.
+/// </summary>
 public class Album
 {
     public int Id { get; set; }

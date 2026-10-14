@@ -4,6 +4,10 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for TV shows: column lengths, external ID indexes, genre
+/// links, and deletion along with the library.
+/// </summary>
 public class TVShowEntityConfiguration : IEntityTypeConfiguration<TvShow>
 {
     public void Configure(EntityTypeBuilder<TvShow> builder)

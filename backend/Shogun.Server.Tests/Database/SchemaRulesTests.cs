@@ -5,6 +5,10 @@ using Shouldly;
 
 namespace Shogun.Server.Tests.Database;
 
+/// <summary>
+/// Database tests: checks that the rules in the schema are enforced by a real,
+/// migrated SQLite database.
+/// </summary>
 public class SchemaRulesTests : IDisposable
 {
     private readonly TestDatabase _database = new();

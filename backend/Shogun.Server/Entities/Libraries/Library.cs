@@ -1,5 +1,8 @@
 namespace Shogun.Server.Entities;
 
+/// <summary>
+/// The kind of media a library holds.
+/// </summary>
 public enum LibraryType
 {
     Movie,
@@ -7,6 +10,10 @@ public enum LibraryType
     Music
 }
 
+/// <summary>
+/// A named collection of media of one type, built from one or more folders.
+/// Members are given access one library at a time.
+/// </summary>
 public class Library
 {
     public int Id { get; set; }

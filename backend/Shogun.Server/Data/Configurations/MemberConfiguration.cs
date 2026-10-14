@@ -4,6 +4,9 @@ using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for members: column lengths, and one row per Firebase user.
+/// </summary>
 public class MemberEntityConfiguration : IEntityTypeConfiguration<Member>
 {
     public void Configure(EntityTypeBuilder<Member> builder)
