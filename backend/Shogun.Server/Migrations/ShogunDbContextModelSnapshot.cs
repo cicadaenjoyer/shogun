@@ -17,7 +17,97 @@ namespace Shogun.Server.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.8");
 
-            modelBuilder.Entity("Shogun.Server.Models.Album", b =>
+            modelBuilder.Entity("AlbumGenre", b =>
+                {
+                    b.Property<int>("AlbumId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("GenresId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("AlbumId", "GenresId");
+
+                    b.HasIndex("GenresId");
+
+                    b.ToTable("AlbumGenre");
+                });
+
+            modelBuilder.Entity("ArtistGenre", b =>
+                {
+                    b.Property<int>("ArtistId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("GenresId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ArtistId", "GenresId");
+
+                    b.HasIndex("GenresId");
+
+                    b.ToTable("ArtistGenre");
+                });
+
+            modelBuilder.Entity("ArtistTrack", b =>
+                {
+                    b.Property<int>("ArtistsId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TrackId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ArtistsId", "TrackId");
+
+                    b.HasIndex("TrackId");
+
+                    b.ToTable("ArtistTrack");
+                });
+
+            modelBuilder.Entity("GenreMovie", b =>
+                {
+                    b.Property<int>("GenresId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("GenresId", "MovieId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("GenreMovie");
+                });
+
+            modelBuilder.Entity("GenreTvShow", b =>
+                {
+                    b.Property<int>("GenresId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TvShowId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("GenresId", "TvShowId");
+
+                    b.HasIndex("TvShowId");
+
+                    b.ToTable("GenreTvShow");
+                });
+
+            modelBuilder.Entity("LibraryMember", b =>
+                {
+                    b.Property<int>("AllowedLibrariesId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MembersId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("AllowedLibrariesId", "MembersId");
+
+                    b.HasIndex("MembersId");
+
+                    b.ToTable("LibraryMember");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.Album", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -26,7 +116,23 @@ namespace Shogun.Server.Migrations
                     b.Property<int>("ArtistId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("CoverUrl")
+                    b.Property<string>("CoverImageKey")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsMetadataLocked")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MetadataStatus")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MusicBrainzId")
+                        .HasMaxLength(36)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SortTitle")
+                        .IsRequired()
+                        .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
@@ -34,18 +140,19 @@ namespace Shogun.Server.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Year")
+                    b.Property<int?>("Year")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArtistId", "Title")
-                        .IsUnique();
+                    b.HasIndex("MusicBrainzId");
+
+                    b.HasIndex("ArtistId", "Title");
 
                     b.ToTable("Albums");
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.Artist", b =>
+            modelBuilder.Entity("Shogun.Server.Entities.Artist", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -54,10 +161,17 @@ namespace Shogun.Server.Migrations
                     b.Property<string>("Bio")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Genre")
+                    b.Property<string>("ImageKey")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<bool>("IsMetadataLocked")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("LibraryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MusicBrainzId")
+                        .HasMaxLength(36)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -65,12 +179,21 @@ namespace Shogun.Server.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("SortName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("LibraryId");
+
+                    b.HasIndex("MusicBrainzId");
 
                     b.ToTable("Artists");
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.Episode", b =>
+            modelBuilder.Entity("Shogun.Server.Entities.Episode", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,17 +202,13 @@ namespace Shogun.Server.Migrations
                     b.Property<int>("EpisodeNumber")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("FilePath")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<long>("FileSize")
+                    b.Property<bool>("IsMetadataLocked")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Overview")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Runtime")
+                    b.Property<int?>("RuntimeSeconds")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("SeasonId")
@@ -102,18 +221,229 @@ namespace Shogun.Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FilePath")
-                        .IsUnique();
-
-                    b.HasIndex("SeasonId");
-
-                    b.HasIndex("EpisodeNumber", "SeasonId")
+                    b.HasIndex("SeasonId", "EpisodeNumber")
                         .IsUnique();
 
                     b.ToTable("Episodes");
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.Movie", b =>
+            modelBuilder.Entity("Shogun.Server.Entities.Genre", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT")
+                        .UseCollation("NOCASE");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Genres");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.Library", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("LastScannedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Libraries");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.LibraryPath", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("LibraryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LibraryId");
+
+                    b.HasIndex("Path")
+                        .IsUnique();
+
+                    b.ToTable("LibraryPaths");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.MediaFile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("BitrateKbps")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Container")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("DurationSeconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("EpisodeId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<long>("FileSize")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsMissing")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("LastModifiedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("LibraryPathId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("MissingSince")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("MovieId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("TrackId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EpisodeId");
+
+                    b.HasIndex("FilePath")
+                        .IsUnique();
+
+                    b.HasIndex("LibraryPathId");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("TrackId");
+
+                    b.ToTable("MediaFiles", t =>
+                        {
+                            t.HasCheckConstraint("CK_MediaFiles_AtMostOneWork", "(\"MovieId\" IS NOT NULL) + (\"EpisodeId\" IS NOT NULL) + (\"TrackId\" IS NOT NULL) <= 1");
+                        });
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.MediaStream", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Channels")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Codec")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("Height")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Index")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsDefaultTrack")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Language")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MediaFileId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("SubtitleType")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("Width")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MediaFileId");
+
+                    b.ToTable("MediaStreams");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.Member", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Avatar")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("DownloadsAllowed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("FirebaseUid")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("LastSeenAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("MaxStreamingBitrateKbps")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FirebaseUid")
+                        .IsUnique();
+
+                    b.ToTable("Members");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.Movie", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -124,51 +454,124 @@ namespace Shogun.Server.Migrations
                         .HasColumnType("TEXT")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-                    b.Property<string>("FilePath")
-                        .IsRequired()
+                    b.Property<string>("ImdbId")
+                        .HasMaxLength(16)
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("FileSize")
+                    b.Property<bool>("IsMetadataLocked")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Genre")
+                    b.Property<int>("LibraryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MetadataStatus")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Overview")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PosterUrl")
+                    b.Property<string>("PosterImageKey")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Runtime")
+                    b.Property<int?>("RuntimeSeconds")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("SortTitle")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Year")
+                    b.Property<int?>("TmdbId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Year")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FilePath")
-                        .IsUnique();
+                    b.HasIndex("ImdbId");
+
+                    b.HasIndex("LibraryId");
+
+                    b.HasIndex("TmdbId");
 
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.Season", b =>
+            modelBuilder.Entity("Shogun.Server.Entities.PlaybackState", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("Completed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("EpisodeId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("LastPlayedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MemberId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("MovieId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PlayCount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PositionSeconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("TrackId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EpisodeId");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("TrackId");
+
+                    b.HasIndex("MemberId", "EpisodeId")
+                        .IsUnique();
+
+                    b.HasIndex("MemberId", "LastPlayedAt");
+
+                    b.HasIndex("MemberId", "MovieId")
+                        .IsUnique();
+
+                    b.HasIndex("MemberId", "TrackId")
+                        .IsUnique();
+
+                    b.ToTable("PlaybackStates", t =>
+                        {
+                            t.HasCheckConstraint("CK_PlaybackStates_ExactlyOneWork", "(\"MovieId\" IS NOT NULL) + (\"EpisodeId\" IS NOT NULL) + (\"TrackId\" IS NOT NULL) = 1");
+                        });
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.Season", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsMetadataLocked")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Overview")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PosterUrl")
+                    b.Property<string>("PosterImageKey")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("SeasonNumber")
@@ -179,15 +582,13 @@ namespace Shogun.Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TvShowId");
-
-                    b.HasIndex("SeasonNumber", "TvShowId")
+                    b.HasIndex("TvShowId", "SeasonNumber")
                         .IsUnique();
 
                     b.ToTable("Seasons");
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.Track", b =>
+            modelBuilder.Entity("Shogun.Server.Entities.Track", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -196,15 +597,22 @@ namespace Shogun.Server.Migrations
                     b.Property<int>("AlbumId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Duration")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("FilePath")
-                        .IsRequired()
+                    b.Property<string>("ArtistCredit")
+                        .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("FileSize")
+                    b.Property<int>("DiscNumber")
                         .HasColumnType("INTEGER");
+
+                    b.Property<int?>("DurationSeconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsMetadataLocked")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MusicBrainzId")
+                        .HasMaxLength(36)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -216,28 +624,43 @@ namespace Shogun.Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FilePath")
-                        .IsUnique();
+                    b.HasIndex("MusicBrainzId");
 
-                    b.HasIndex("AlbumId", "TrackNumber")
+                    b.HasIndex("AlbumId", "DiscNumber", "TrackNumber")
                         .IsUnique();
 
                     b.ToTable("Tracks");
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.TvShow", b =>
+            modelBuilder.Entity("Shogun.Server.Entities.TvShow", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Genre")
+                    b.Property<string>("ImdbId")
+                        .HasMaxLength(16)
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsMetadataLocked")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("LibraryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MetadataStatus")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Overview")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PosterUrl")
+                    b.Property<string>("PosterImageKey")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SortTitle")
+                        .IsRequired()
+                        .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
@@ -245,91 +668,116 @@ namespace Shogun.Server.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Year")
+                    b.Property<int?>("TmdbId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Year")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ImdbId");
+
+                    b.HasIndex("LibraryId");
+
+                    b.HasIndex("TmdbId");
 
                     b.ToTable("TvShows");
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.User", b =>
+            modelBuilder.Entity("AlbumGenre", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.HasOne("Shogun.Server.Entities.Album", null)
+                        .WithMany()
+                        .HasForeignKey("AlbumId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("AvatarURL")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsAdmin")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("Username")
-                        .IsUnique();
-
-                    b.ToTable("Users");
+                    b.HasOne("Shogun.Server.Entities.Genre", null)
+                        .WithMany()
+                        .HasForeignKey("GenresId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.WatchHistory", b =>
+            modelBuilder.Entity("ArtistGenre", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.HasOne("Shogun.Server.Entities.Artist", null)
+                        .WithMany()
+                        .HasForeignKey("ArtistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<bool>("Completed")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("MediaId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("MediaType")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("ProgressSeconds")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("WatchedAt")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("WatchHistories");
+                    b.HasOne("Shogun.Server.Entities.Genre", null)
+                        .WithMany()
+                        .HasForeignKey("GenresId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.Album", b =>
+            modelBuilder.Entity("ArtistTrack", b =>
                 {
-                    b.HasOne("Shogun.Server.Models.Artist", "Artist")
+                    b.HasOne("Shogun.Server.Entities.Artist", null)
+                        .WithMany()
+                        .HasForeignKey("ArtistsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Shogun.Server.Entities.Track", null)
+                        .WithMany()
+                        .HasForeignKey("TrackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("GenreMovie", b =>
+                {
+                    b.HasOne("Shogun.Server.Entities.Genre", null)
+                        .WithMany()
+                        .HasForeignKey("GenresId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Shogun.Server.Entities.Movie", null)
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("GenreTvShow", b =>
+                {
+                    b.HasOne("Shogun.Server.Entities.Genre", null)
+                        .WithMany()
+                        .HasForeignKey("GenresId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Shogun.Server.Entities.TvShow", null)
+                        .WithMany()
+                        .HasForeignKey("TvShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LibraryMember", b =>
+                {
+                    b.HasOne("Shogun.Server.Entities.Library", null)
+                        .WithMany()
+                        .HasForeignKey("AllowedLibrariesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Shogun.Server.Entities.Member", null)
+                        .WithMany()
+                        .HasForeignKey("MembersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.Album", b =>
+                {
+                    b.HasOne("Shogun.Server.Entities.Artist", "Artist")
                         .WithMany()
                         .HasForeignKey("ArtistId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -338,9 +786,20 @@ namespace Shogun.Server.Migrations
                     b.Navigation("Artist");
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.Episode", b =>
+            modelBuilder.Entity("Shogun.Server.Entities.Artist", b =>
                 {
-                    b.HasOne("Shogun.Server.Models.Season", "Season")
+                    b.HasOne("Shogun.Server.Entities.Library", "Library")
+                        .WithMany()
+                        .HasForeignKey("LibraryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Library");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.Episode", b =>
+                {
+                    b.HasOne("Shogun.Server.Entities.Season", "Season")
                         .WithMany()
                         .HasForeignKey("SeasonId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -349,9 +808,106 @@ namespace Shogun.Server.Migrations
                     b.Navigation("Season");
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.Season", b =>
+            modelBuilder.Entity("Shogun.Server.Entities.LibraryPath", b =>
                 {
-                    b.HasOne("Shogun.Server.Models.TvShow", "TvShow")
+                    b.HasOne("Shogun.Server.Entities.Library", "Library")
+                        .WithMany("Folders")
+                        .HasForeignKey("LibraryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Library");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.MediaFile", b =>
+                {
+                    b.HasOne("Shogun.Server.Entities.Episode", "Episode")
+                        .WithMany()
+                        .HasForeignKey("EpisodeId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("Shogun.Server.Entities.LibraryPath", "LibraryPath")
+                        .WithMany()
+                        .HasForeignKey("LibraryPathId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Shogun.Server.Entities.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("Shogun.Server.Entities.Track", "Track")
+                        .WithMany()
+                        .HasForeignKey("TrackId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Episode");
+
+                    b.Navigation("LibraryPath");
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("Track");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.MediaStream", b =>
+                {
+                    b.HasOne("Shogun.Server.Entities.MediaFile", "MediaFile")
+                        .WithMany()
+                        .HasForeignKey("MediaFileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MediaFile");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.Movie", b =>
+                {
+                    b.HasOne("Shogun.Server.Entities.Library", "Library")
+                        .WithMany()
+                        .HasForeignKey("LibraryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Library");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.PlaybackState", b =>
+                {
+                    b.HasOne("Shogun.Server.Entities.Episode", "Episode")
+                        .WithMany()
+                        .HasForeignKey("EpisodeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Shogun.Server.Entities.Member", "Member")
+                        .WithMany()
+                        .HasForeignKey("MemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Shogun.Server.Entities.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Shogun.Server.Entities.Track", "Track")
+                        .WithMany()
+                        .HasForeignKey("TrackId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Episode");
+
+                    b.Navigation("Member");
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("Track");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.Season", b =>
+                {
+                    b.HasOne("Shogun.Server.Entities.TvShow", "TvShow")
                         .WithMany()
                         .HasForeignKey("TvShowId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -360,9 +916,9 @@ namespace Shogun.Server.Migrations
                     b.Navigation("TvShow");
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.Track", b =>
+            modelBuilder.Entity("Shogun.Server.Entities.Track", b =>
                 {
-                    b.HasOne("Shogun.Server.Models.Album", "Album")
+                    b.HasOne("Shogun.Server.Entities.Album", "Album")
                         .WithMany()
                         .HasForeignKey("AlbumId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -371,15 +927,20 @@ namespace Shogun.Server.Migrations
                     b.Navigation("Album");
                 });
 
-            modelBuilder.Entity("Shogun.Server.Models.WatchHistory", b =>
+            modelBuilder.Entity("Shogun.Server.Entities.TvShow", b =>
                 {
-                    b.HasOne("Shogun.Server.Models.User", "User")
+                    b.HasOne("Shogun.Server.Entities.Library", "Library")
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("LibraryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Library");
+                });
+
+            modelBuilder.Entity("Shogun.Server.Entities.Library", b =>
+                {
+                    b.Navigation("Folders");
                 });
 #pragma warning restore 612, 618
         }

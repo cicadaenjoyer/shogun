@@ -1,20 +1,25 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Shogun.Server.Models;
+using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for episodes: one episode number per season, and deletion
+/// along with the season.
+/// </summary>
 public class EpisodeEntityConfiguration : IEntityTypeConfiguration<Episode>
 {
     public void Configure(EntityTypeBuilder<Episode> builder)
     {
         builder.Property(e => e.Title)
             .HasMaxLength(255);
-        
-        builder.HasIndex(e => e.FilePath)
+
+        builder.HasIndex(e => new { e.SeasonId, e.EpisodeNumber })
             .IsUnique();
 
-        builder.HasIndex(m => new { m.EpisodeNumber, m.SeasonId })
-            .IsUnique();
+        builder.HasOne(e => e.Season)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

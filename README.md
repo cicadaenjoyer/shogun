@@ -2,7 +2,7 @@
 
 Shogun is a self-hosted media streaming platform. Owners run a **Shogun Server** on their own hardware to organize and stream their personal movie, TV, and music libraries, then invite a small group of friends and family to watch and listen with them. Accounts, groups, and chat are handled by a shared cloud service, while media always streams directly from the owner's server to the viewer.
 
-> **Status:** early development. The server's data layer is in place; most features below are planned and not yet implemented.
+> **Status:** early development. The server's foundation is in place (database schema, settings, logging, a health endpoint, tests, and CI); most features below are planned and not yet implemented.
 
 ---
 
@@ -50,15 +50,19 @@ This is a monorepo containing the server, cloud functions, and web client.
 
 ```text
 shogun/
+├── .github/workflows/         # CI: builds the server and runs its tests
 ├── backend/
 │   ├── Shogun.slnx            # Solution: every .NET project below
-│   ├── Makefile               # Shortcuts for build, run, migrations
-│   └── Shogun.Server/         # Shogun Server (ASP.NET Core Web API)
-│       ├── Controllers/       # HTTP endpoints
-│       ├── Data/              # EF Core DbContext and entity configurations
-│       ├── Migrations/        # EF Core database migrations
-│       └── Models/            # Domain entities (movies, TV, music)
-├── docs/roadmap/              # Phase-by-phase build plan
+│   ├── Makefile               # Shortcuts for build, run, tests, migrations
+│   ├── Shogun.Server/         # Shogun Server (ASP.NET Core Web API)
+│   │   ├── Controllers/       # HTTP endpoints
+│   │   ├── DTO/               # Shapes of API requests and responses
+│   │   ├── Services/          # Logic behind the endpoints
+│   │   ├── Options/           # Typed settings, validated at startup
+│   │   ├── Entities/          # Database entities (libraries, media, members)
+│   │   ├── Data/              # EF Core DbContext, entity configurations, converters
+│   │   └── Migrations/        # EF Core database migrations
+│   └── Shogun.Server.Tests/   # Unit, integration, and database tests (xUnit)
 ├── firebase/                  # Shogun Hub: Cloud Functions and security rules (planned)
 ├── web/                       # Shogun Web: React + Vite client (planned)
 ├── shared/                    # Shared schemas and TypeScript types (planned)
@@ -70,7 +74,7 @@ shogun/
 ### Prerequisites
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
-- The Entity Framework Core CLI:
+- The Entity Framework Core CLI, needed only when you change the database schema:
 
     ```bash
     dotnet tool install --global dotnet-ef
@@ -80,20 +84,37 @@ shogun/
 
 ### Running the Server
 
+1. Create your local settings file. From `backend/Shogun.Server/`:
+
+    ```bash
+    cp appsettings.Development.json.example appsettings.Development.json
+    ```
+
+    Open the new file and set the three `Storage` folders to absolute paths your user can write to. The Server creates them on first start. Without this file the Server falls back to system folders such as `/var/lib/shogun` and will not start for a normal user.
+
+2. Build and run. From `backend/`:
+
+    ```bash
+    # Restore packages and build every project in the solution
+    dotnet build
+
+    # Start the server
+    dotnet run --project Shogun.Server
+    ```
+
+On startup the Server creates its SQLite database (`shogun.db`) inside the data folder and applies any pending migrations, so there is no separate database step.
+
+The API listens on `http://localhost:5265` by default. To confirm it is running, open `http://localhost:5265/api/v1/health`. In the Development environment, interactive API documentation is available at `http://localhost:5265/swagger`.
+
+### Running the Tests
+
 From `backend/`:
 
 ```bash
-# Restore packages and build every project in the solution
-dotnet build
-
-# Create the local SQLite database from the migrations
-dotnet ef database update --project Shogun.Server
-
-# Start the server
-dotnet run --project Shogun.Server
+dotnet test
 ```
 
-The API listens on `http://localhost:5265` by default. In the Development environment, interactive API documentation is available at `http://localhost:5265/swagger`.
+The tests use temporary folders and databases, so they never touch your local data. The same command runs on GitHub Actions for every pull request.
 
 ### Development Commands
 
@@ -105,7 +126,8 @@ A Makefile in `backend/` wraps common tasks:
 | `make build`                        | Build every project in the solution        |
 | `make test`                         | Run the tests                              |
 | `make migrate NAME=<MigrationName>` | Create a new EF Core migration             |
-| `make db-update`                    | Apply migrations to the local database     |
+| `make db-update`                    | Apply migrations without running the app   |
+| `make db-test-tables`               | Print the SQL for the current schema       |
 | `make jwt-create NAME=<username>`   | Create a development JWT for local testing |
 | `make jwt-list`                     | List development JWTs                      |
 | `make jwt-list-user ID=<token-id>`  | Show the details of a development JWT      |
@@ -113,6 +135,8 @@ A Makefile in `backend/` wraps common tasks:
 ### Configuration
 
 Server settings are read from `appsettings.json`, then overridden by [.NET user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets) in development and environment variables in production. **Secrets must never be committed to the repository.** `appsettings.Development.json` and local database files are excluded by `.gitignore`.
+
+Settings are checked when the Server starts, and a missing or invalid value stops it with a message naming the setting. The `Storage` section decides where the Server keeps its own files: the data folder (database and server ID, the one folder to back up), the image cache, and transcoding scratch space.
 
 ## Tech Stack
 

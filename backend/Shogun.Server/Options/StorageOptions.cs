@@ -19,12 +19,22 @@ public class StorageOptions
     public const string SectionName = "Storage";
 
     /// <summary>
+    /// The file name of the SQLite database inside the data folder.
+    /// </summary>
+    public const string DatabaseFileName = "shogun.db";
+
+    /// <summary>
     /// The Server's own data folder: the SQLite database, the generated server
     /// ID, and the Hub credential received when the server is claimed.
     /// This is the one folder an owner must back up.
     /// </summary>
     [Required(ErrorMessage = "The data folder is required.")]
     public string DataFolder { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The full path of the SQLite database file, inside the data folder.
+    /// </summary>
+    public string DatabasePath => Path.Combine(DataFolder, DatabaseFileName);
 
     /// <summary>
     /// Where downloaded and resized artwork is cached. Safe to delete: the

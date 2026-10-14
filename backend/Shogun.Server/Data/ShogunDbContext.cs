@@ -1,8 +1,13 @@
 using Microsoft.EntityFrameworkCore;
-using Shogun.Server.Models;
+using Shogun.Server.Data.Converters;
+using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data;
 
+/// <summary>
+/// The Server's database: one set per table, plus the rules that apply to every
+/// entity.
+/// </summary>
 public class ShogunDbContext : DbContext
 {
     public ShogunDbContext(DbContextOptions<ShogunDbContext> options)
@@ -12,9 +17,20 @@ public class ShogunDbContext : DbContext
 
     // Tables
 
+    // Library
+    public DbSet<Library> Libraries { get; set; } = null!;
+    public DbSet<LibraryPath> LibraryPaths { get; set; } = null!;
+
+    // Media
+    public DbSet<MediaFile> MediaFiles { get; set; } = null!;
+    public DbSet<MediaStream> MediaStreams { get; set; } = null!;
+
+    // Metadata
+    public DbSet<Genre> Genres { get; set; } = null!;
+
     // User
-    public DbSet<User> Users { get; set; } = null!;
-    public DbSet<WatchHistory> WatchHistories { get; set; } = null!;
+    public DbSet<Member> Members { get; set; } = null!;
+    public DbSet<PlaybackState> PlaybackStates { get; set; } = null!;
 
     // TV
     public DbSet<TvShow> TvShows { get; set; } = null!;
@@ -29,11 +45,24 @@ public class ShogunDbContext : DbContext
     // Movie
     public DbSet<Movie> Movies { get; set; } = null!;
 
-    // loads every configuration class automatically
     #region Required
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // loads every configuration class automatically
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ShogunDbContext).Assembly);
+    }
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+        // converts all enums to their String values
+        configurationBuilder
+            .Properties<Enum>()
+            .HaveConversion<string>();
+
+        // converts all DateTime objects into UTC format before
+        // registering it to the db
+        configurationBuilder
+            .Properties<DateTime>()
+            .HaveConversion<UtcDateTimeConverter>();
     }
     #endregion
 }

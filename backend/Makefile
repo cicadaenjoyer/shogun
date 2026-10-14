@@ -1,6 +1,6 @@
 SERVER := Shogun.Server
 
-all:
+serve:
 	dotnet run --project $(SERVER)
 
 build:
@@ -14,6 +14,9 @@ migrate:
 
 db-update:
 	dotnet ef database update --project $(SERVER) --startup-project $(SERVER)
+
+db-test-tables:
+	dotnet ef dbcontext script --project ${SERVER}
 
 jwt-create:
 	dotnet user-jwts create --project $(SERVER) -n $(NAME)

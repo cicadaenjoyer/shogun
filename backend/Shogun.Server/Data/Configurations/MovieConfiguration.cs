@@ -1,20 +1,38 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Shogun.Server.Models;
+using Shogun.Server.Entities;
 
 namespace Shogun.Server.Data.Configurations;
 
+/// <summary>
+/// Database rules for movies: column lengths, external ID indexes, genre links,
+/// and deletion along with the library.
+/// </summary>
 public class MovieEntityConfiguration : IEntityTypeConfiguration<Movie>
 {
     public void Configure(EntityTypeBuilder<Movie> builder)
     {
         builder.Property(m => m.Title)
             .HasMaxLength(255);
-        
-        builder.HasIndex(m => m.FilePath)
-            .IsUnique();
+
+        builder.Property(m => m.SortTitle)
+            .HasMaxLength(255);
+
+        builder.Property(m => m.ImdbId)
+            .HasMaxLength(16);
 
         builder.Property(m => m.AddedAt)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        builder.HasIndex(m => m.TmdbId);
+
+        builder.HasIndex(m => m.ImdbId);
+
+        builder.HasMany(m => m.Genres)
+            .WithMany();
+
+        builder.HasOne(m => m.Library)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
