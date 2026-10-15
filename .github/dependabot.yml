@@ -1,0 +1,19 @@
+version: 2
+updates:
+    - package-ecosystem: "nuget"
+      directory: "/backend"
+      schedule:
+          interval: "weekly"
+      groups:
+          microsoft:
+              patterns:
+                  [Microsoft.AspNetCore.*, Microsoft.EntityFrameworkCore.*]
+      ignore:
+          - dependency-name: "Microsoft.AspNetCore.*"
+            update-types: [version-update:semver-major]
+          - dependency-name: "Microsoft.EntityFrameworkCore.*"
+            update-types: [version-update:semver-major]
+    - package-ecosystem: "github-actions"
+      directory: "/"
+      schedule:
+          interval: "weekly"
