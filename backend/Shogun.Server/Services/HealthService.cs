@@ -26,6 +26,6 @@ public class HealthService
     /// </summary>
     public HealthResponse GetHealth()
     {
-        return new HealthResponse("ok", _version, Environment.MachineName, _serverIdentity.Id);
+        return new HealthResponse("ok", _version, _serverIdentity.Name, _serverIdentity.Id);
     }
 }
