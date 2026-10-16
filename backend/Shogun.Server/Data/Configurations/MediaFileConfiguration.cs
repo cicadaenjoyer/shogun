@@ -26,7 +26,7 @@ public class MediaFileEntityConfiguration : IEntityTypeConfiguration<MediaFile>
         builder.HasOne(f => f.Movie)
             .WithMany()
             .OnDelete(DeleteBehavior.SetNull);
-        
+
         builder.HasOne(f => f.Episode)
             .WithMany()
             .OnDelete(DeleteBehavior.SetNull);

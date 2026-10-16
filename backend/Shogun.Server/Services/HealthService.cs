@@ -11,7 +11,7 @@ public class HealthService
 {
     private readonly string _version;
     private readonly ServerIdentity _serverIdentity;
-    
+
     public HealthService(ServerIdentity serverIdentity)
     {
         _serverIdentity = serverIdentity;
