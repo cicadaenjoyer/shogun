@@ -69,6 +69,9 @@ try
         opt.UseSqlite(connection.ToString());
     });
 
+    // Server
+    builder.Services.AddSingleton<ServerIdentity>();
+
     // API & Controllers
     builder.Services.AddOpenApi();
     builder.Services.AddSingleton<HealthService>();
@@ -77,6 +80,9 @@ try
     builder.Services.AddProblemDetails();
 
     var app = builder.Build();
+
+    // Load the server ID now rather than on the first request.
+    app.Services.GetRequiredService<ServerIdentity>();
 
     // Turning on WAL mode and running migrations
     using (var scope = app.Services.CreateScope())
