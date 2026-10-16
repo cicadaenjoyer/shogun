@@ -47,7 +47,22 @@ public class HealthService
         }
 
         var newId = Guid.NewGuid().ToString();
-        File.WriteAllText(path, newId);
+
+        var options = new FileStreamOptions
+        {
+            Mode = FileMode.Create,
+            Access = FileAccess.Read | FileAccess.Write,
+        };
+
+        if (!OperatingSystem.IsWindows())
+        {
+            options.UnixCreateMode = UnixFileMode.UserRead | UnixFileMode.UserWrite;
+        }
+
+        using var stream = new FileStream(path, options);
+        using var writer = new StreamWriter(stream);
+
+        writer.Write(newId);
         return newId;
     }
 }
