@@ -60,13 +60,14 @@ public class ServerIdentityTests : IDisposable
     }
 
     [Fact]
-    public void UnreadableServerIdFile_IsReplacedWithANewId()
+    public void CorruptServerIdFile_RefusesToStartAndKeepsTheFile()
     {
         File.WriteAllText(ServerIdFile, "not a valid id");
 
-        var identity = CreateIdentity();
+        var error = Should.Throw<InvalidOperationException>(() => CreateIdentity());
 
-        Guid.TryParse(identity.Id, out _).ShouldBeTrue();
-        File.ReadAllText(ServerIdFile).ShouldBe(identity.Id);
+        error.Message.ShouldContain("server-id");
+        // Nothing was overwritten, so the owner can still inspect or restore it
+        File.ReadAllText(ServerIdFile).ShouldBe("not a valid id");
     }
 }
