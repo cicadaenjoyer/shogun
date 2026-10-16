@@ -1,7 +1,5 @@
 using System.Reflection;
-using Microsoft.Extensions.Options;
 using Shogun.Server.DTO;
-using Shogun.Server.Options;
 
 namespace Shogun.Server.Services;
 
@@ -11,18 +9,15 @@ namespace Shogun.Server.Services;
 /// </summary>
 public class HealthService
 {
-    // The file inside the data folder that holds this server's ID.
-    private const string ServerIdFileName = "server-id";
-
     private readonly string _version;
-    private readonly string _serverId;
-    
-    public HealthService(IOptions<StorageOptions> storageOptions)
+    private readonly ServerIdentity _serverIdentity;
+
+    public HealthService(ServerIdentity serverIdentity)
     {
+        _serverIdentity = serverIdentity;
+
         var versionAttr = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>();
         _version = versionAttr?.InformationalVersion.Split('+')[0] ?? "unknown";
-
-        _serverId = LoadOrCreateServerId(storageOptions.Value.DataFolder);
     }
 
     /// <summary>
@@ -31,23 +26,6 @@ public class HealthService
     /// </summary>
     public HealthResponse GetHealth()
     {
-        return new HealthResponse("ok", _version, Environment.MachineName, _serverId);
-    }
-
-    // Reads the server ID from the data folder. On the very first start there
-    // is no file yet, so a random ID is generated and saved, and every later
-    // start reads that same value back.
-    private static string LoadOrCreateServerId(string dataFolder)
-    {
-        var path = Path.Combine(dataFolder, ServerIdFileName);
-
-        if (File.Exists(path) && Guid.TryParse(File.ReadAllText(path).Trim(), out var existingId))
-        {
-            return existingId.ToString();
-        }
-
-        var newId = Guid.NewGuid().ToString();
-        File.WriteAllText(path, newId);
-        return newId;
+        return new HealthResponse("ok", _version, _serverIdentity.Name, _serverIdentity.Id);
     }
 }

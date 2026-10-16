@@ -8,7 +8,7 @@ namespace Shogun.Server.Data.Converters;
 /// </summary>
 public class UtcDateTimeConverter : ValueConverter<DateTime, DateTime>
 {
-    public UtcDateTimeConverter() : base(value => ToDatabase(value), value => FromDatabase(value)) {}
+    public UtcDateTimeConverter() : base(value => ToDatabase(value), value => FromDatabase(value)) { }
 
     public static DateTime ToDatabase(DateTime value)
     {

@@ -10,18 +10,11 @@
 // SECRETS DO NOT GO IN EITHER FILE. Use user secrets, which live outside the
 // repository entirely:
 //
-//     dotnet user-secrets set "Hub:ServerCredential" "the-value" --project Shogun.Server
+//     dotnet user-secrets set "Section:Key" "the-value" --project Shogun.Server
 //
 // (JSON doesn't normally allow comments, but ASP.NET Core's configuration
 // reader skips them, so this file works as-is once copied.)
 {
-    "Logging": {
-        "LogLevel": {
-            "Default": "Information",
-            "Microsoft.AspNetCore": "Warning"
-        }
-    },
-
     // Used by "make jwt-create" for local API testing. Replaced in Phase 2A by
     // real server passes issued by the Hub.
     "Authentication": {

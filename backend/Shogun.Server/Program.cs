@@ -1,10 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Serilog;
 using Shogun.Server.Data;
 using Shogun.Server.Options;
 using Shogun.Server.Services;
-using Serilog;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft.AspNetCore", Serilog.Events.LogEventLevel.Warning)
@@ -20,7 +21,12 @@ try
     // Logging
     builder.Services.AddSerilog();
 
-    // Settings (Hub, Web, Storage, & Transcoding)
+    // Settings (Server, Hub, Web, Storage, & Transcoding)
+    builder.Services
+        .AddOptions<ServerOptions>()
+        .BindConfiguration(ServerOptions.SectionName)
+        .ValidateDataAnnotations()
+        .ValidateOnStart();
     builder.Services
         .AddOptions<HubOptions>()
         .BindConfiguration(HubOptions.SectionName)
@@ -46,8 +52,13 @@ try
         .ValidateDataAnnotations()
         .ValidateOnStart();
 
-    // JWT
-    builder.Services.AddAuthorization();
+    // JWT & Fallback Authorization
+    builder.Services.AddAuthorization(options =>
+    {
+        options.FallbackPolicy = new AuthorizationPolicyBuilder()
+            .RequireAuthenticatedUser()
+            .Build();
+    });
     builder.Services.AddAuthentication("Bearer").AddJwtBearer();
 
     // Controllers
@@ -63,6 +74,9 @@ try
         opt.UseSqlite(connection.ToString());
     });
 
+    // Server
+    builder.Services.AddSingleton<ServerIdentity>();
+
     // API & Controllers
     builder.Services.AddOpenApi();
     builder.Services.AddSingleton<HealthService>();
@@ -71,6 +85,9 @@ try
     builder.Services.AddProblemDetails();
 
     var app = builder.Build();
+
+    // Load the server ID now rather than on the first request.
+    app.Services.GetRequiredService<ServerIdentity>();
 
     // Turning on WAL mode and running migrations
     using (var scope = app.Services.CreateScope())
@@ -88,7 +105,7 @@ try
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
-        app.MapOpenApi();
+        app.MapOpenApi().AllowAnonymous();
         app.UseSwaggerUi(options =>
         {
             options.DocumentPath = "/openapi/v1.json";
@@ -105,6 +122,7 @@ try
 catch (Exception ex) when (ex is not HostAbortedException)
 {
     Log.Fatal(ex, "Application terminated unexpectedly");
+    Environment.ExitCode = 1;
 }
 finally
 {

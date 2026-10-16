@@ -18,7 +18,7 @@ public class MediaFile
     public int? BitrateKbps { get; set; }
     public DateTime LastModifiedAt { get; set; }
     public bool IsMissing { get; set; }
-    public DateTime? MissingSince { get; set; } 
+    public DateTime? MissingSince { get; set; }
     public LibraryPath LibraryPath { get; set; } = null!;
     public Movie? Movie { get; set; }
     public Episode? Episode { get; set; }

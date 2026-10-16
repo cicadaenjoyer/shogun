@@ -22,5 +22,15 @@ jobs:
               run: dotnet restore
             - name: Build
               run: dotnet build --no-restore
+            - name: Lint
+              run: dotnet format --verify-no-changes
+            - name: Check for missing migrations
+              env:
+                  Storage__DataFolder: ${{ runner.temp }}/shogun/data
+                  Storage__ImageCacheFolder: ${{ runner.temp }}/shogun/images
+                  Storage__TranscodeTempFolder: ${{ runner.temp }}/shogun/transcode
+              run: |
+                  dotnet tool restore
+                  dotnet ef migrations has-pending-model-changes --project Shogun.Server --no-build
             - name: Run tests
               run: dotnet test --no-build

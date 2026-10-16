@@ -45,17 +45,4 @@ public class HubOptions
     /// </summary>
     [Range(30, 600, ErrorMessage = "The heartbeat interval must be between 30 and 600 seconds.")]
     public int HeartbeatIntervalSeconds { get; set; } = 120;
-
-    /// <summary>
-    /// This server's secret credential, issued once by the Hub when the owner
-    /// claims the server. It is a SECRET: it must come from user secrets in
-    /// development or an environment variable in production, never from
-    /// appsettings.json, which is committed to git.
-    /// </summary>
-    public string? ServerCredential { get; set; }
-
-    /// <summary>
-    /// True once this server has been claimed by an owner and can talk to the Hub.
-    /// </summary>
-    public bool IsClaimed => !string.IsNullOrWhiteSpace(ServerCredential);
 }

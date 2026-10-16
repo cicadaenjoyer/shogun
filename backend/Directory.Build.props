@@ -1,0 +1,29 @@
+<Project>
+    <PropertyGroup>
+        <WarningsAsErrors>$(WarningsAsErrors);NU1903;NU1904</WarningsAsErrors>
+        <WarningsAsErrors>$(WarningsAsErrors);CS4014;nullable</WarningsAsErrors>
+        <NuGetAudit>true</NuGetAudit>
+        <NuGetAuditMode>all</NuGetAuditMode>
+        <NuGetAuditLevel>moderate</NuGetAuditLevel>
+    </PropertyGroup>
+
+    <!--
+      Rule for silencing a vulnerability advisory.
+      Moderate advisories are reported as warnings. High and critical advisories fail the build.
+
+      If a high or critical advisory has no fix yet, silence only that one advisory.
+      Never turn NuGetAudit off, lower NuGetAuditLevel, or remove the codes from WarningsAsErrors.
+
+      Every suppression needs:
+        - the advisory URL, from the build warning
+        - why Shogun can't reach the vulnerable code
+        - a date, at most 30 days away, to check again
+      When a fix is released, update the package and delete the suppression.
+
+      Example:
+      <ItemGroup>
+          <!- - Why: … Revisit: YYYY-MM-DD - ->
+          <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-xxxx-xxxx-xxxx" />
+      </ItemGroup>
+    -->
+</Project>
