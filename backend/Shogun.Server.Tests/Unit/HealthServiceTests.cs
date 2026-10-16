@@ -19,10 +19,12 @@ public class HealthServiceTests : IDisposable
 
     private ServerIdentity CreateIdentity()
     {
-        var options = Microsoft.Extensions.Options.Options.Create(
+        var storage = Microsoft.Extensions.Options.Options.Create(
             new StorageOptions { DataFolder = _dataFolder.Path });
+        var server = Microsoft.Extensions.Options.Options.Create(
+            new ServerOptions { Name = "Living Room" });
 
-        return new ServerIdentity(options);
+        return new ServerIdentity(storage, server);
     }
 
     [Fact]
@@ -33,7 +35,9 @@ public class HealthServiceTests : IDisposable
         var health = new HealthService(identity).GetHealth();
 
         health.Status.ShouldBe("ok");
-        health.Name.ShouldBe(Environment.MachineName);
+        health.Name.ShouldBe("Living Room");
+        // The hostname is a detail of the owner's network; it must never be public
+        health.Name.ShouldNotBe(Environment.MachineName);
         health.Version.ShouldNotBe("unknown");
         // The build adds "+<commit>" to the version; the service should have removed it
         health.Version.ShouldNotContain("+");

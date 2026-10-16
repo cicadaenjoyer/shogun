@@ -17,12 +17,14 @@ public class ServerIdentityTests : IDisposable
         _dataFolder.Dispose();
     }
 
-    private ServerIdentity CreateIdentity()
+    private ServerIdentity CreateIdentity(string serverName = "Test Server")
     {
-        var options = Microsoft.Extensions.Options.Options.Create(
+        var storage = Microsoft.Extensions.Options.Options.Create(
             new StorageOptions { DataFolder = _dataFolder.Path });
+        var server = Microsoft.Extensions.Options.Options.Create(
+            new ServerOptions { Name = serverName });
 
-        return new ServerIdentity(options);
+        return new ServerIdentity(storage, server);
     }
 
     private string ServerIdFile => Path.Combine(_dataFolder.Path, "server-id");
@@ -43,6 +45,14 @@ public class ServerIdentityTests : IDisposable
         var second = CreateIdentity();
 
         second.Id.ShouldBe(first.Id);
+    }
+
+    [Fact]
+    public void Name_IsTheConfiguredName()
+    {
+        var identity = CreateIdentity("  Living Room  ");
+
+        identity.Name.ShouldBe("Living Room");
     }
 
     [Fact]
