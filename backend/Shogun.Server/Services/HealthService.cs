@@ -51,7 +51,7 @@ public class HealthService
         var options = new FileStreamOptions
         {
             Mode = FileMode.Create,
-            Access = FileAccess.Read | FileAccess.Write,
+            Access = FileAccess.Write,
         };
 
         if (!OperatingSystem.IsWindows())
