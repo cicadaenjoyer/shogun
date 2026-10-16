@@ -5,6 +5,7 @@ using Shogun.Server.Data;
 using Shogun.Server.Options;
 using Shogun.Server.Services;
 using Serilog;
+using Microsoft.AspNetCore.Authorization;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft.AspNetCore", Serilog.Events.LogEventLevel.Warning)
@@ -46,8 +47,13 @@ try
         .ValidateDataAnnotations()
         .ValidateOnStart();
 
-    // JWT
-    builder.Services.AddAuthorization();
+    // JWT & Fallback Authorization
+    builder.Services.AddAuthorization(options =>
+    {
+        options.FallbackPolicy = new AuthorizationPolicyBuilder()
+            .RequireAuthenticatedUser()
+            .Build();
+    });
     builder.Services.AddAuthentication("Bearer").AddJwtBearer();
 
     // Controllers
@@ -88,7 +94,7 @@ try
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
-        app.MapOpenApi();
+        app.MapOpenApi().AllowAnonymous();
         app.UseSwaggerUi(options =>
         {
             options.DocumentPath = "/openapi/v1.json";
