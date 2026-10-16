@@ -1,12 +1,12 @@
 using Microsoft.Extensions.Options;
 using Shogun.Server.Options;
-using YamlDotNet.Core.Tokens;
 
 namespace Shogun.Server.Services;
 
 /// <summary>
-/// This server's permanent ID, kept in a file in the data folder. The health
-/// endpoint reports it, and the Hub will use it to recognize this server.
+/// Who this server is: its permanent ID, kept in a file in the data folder,
+/// and the friendly name the owner chose in settings. The health endpoint
+/// reports both, and the Hub will use them to recognize this server.
 /// Loaded once at startup, so a data folder that can't be written to stops
 /// the Server before it accepts any request.
 /// </summary>
@@ -14,11 +14,14 @@ public class ServerIdentity
 {
     // The file inside the data folder that holds this server's ID.
     private const string ServerIdFileName = "server-id";
-    public string Id { get; }
 
-    public ServerIdentity(IOptions<StorageOptions> storageOptions)
+    public string Id { get; }
+    public string Name { get; }
+
+    public ServerIdentity(IOptions<StorageOptions> storageOptions, IOptions<ServerOptions> serverOptions)
     {
         Id = LoadOrCreateServerId(storageOptions.Value.DataFolder);
+        Name = serverOptions.Value.Name.Trim();
     }
 
 
