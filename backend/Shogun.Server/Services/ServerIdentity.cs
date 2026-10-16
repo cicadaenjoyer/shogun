@@ -3,6 +3,12 @@ using Shogun.Server.Options;
 
 namespace Shogun.Server.Services;
 
+/// <summary>
+/// This server's permanent ID, kept in a file in the data folder. The health
+/// endpoint reports it, and the Hub will use it to recognize this server.
+/// Loaded once at startup, so a data folder that can't be written to stops
+/// the Server before it accepts any request.
+/// </summary>
 public class ServerIdentity
 {
     // The file inside the data folder that holds this server's ID.
