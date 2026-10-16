@@ -21,7 +21,12 @@ try
     // Logging
     builder.Services.AddSerilog();
 
-    // Settings (Hub, Web, Storage, & Transcoding)
+    // Settings (Server, Hub, Web, Storage, & Transcoding)
+    builder.Services
+        .AddOptions<ServerOptions>()
+        .BindConfiguration(ServerOptions.SectionName)
+        .ValidateDataAnnotations()
+        .ValidateOnStart();
     builder.Services
         .AddOptions<HubOptions>()
         .BindConfiguration(HubOptions.SectionName)
