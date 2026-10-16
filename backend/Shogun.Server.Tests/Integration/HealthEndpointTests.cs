@@ -35,11 +35,13 @@ public class HealthEndpointTests : IClassFixture<ShogunApiFactory>
     }
 
     [Fact]
-    public async Task UnknownAddress_ReturnsProblemDetails()
+    public async Task UnknownAddress_WithoutSigningIn_ReturnsUnauthorizedProblemDetails()
     {
         var response = await _client.GetAsync("/api/v1/does-not-exist");
 
-        response.StatusCode.ShouldBe(HttpStatusCode.NotFound);
+        // The fallback policy answers 401 before routing can answer 404,
+        // so a stranger can't tell which addresses exist
+        response.StatusCode.ShouldBe(HttpStatusCode.Unauthorized);
 
         var mediaType = response.Content.Headers.ContentType?.MediaType;
 
