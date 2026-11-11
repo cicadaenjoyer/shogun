@@ -10,10 +10,11 @@ flowchart TD
     E([Member])
     F([Shogun Admin])
 
-    %% Leaving Firebase outside of Shogun because Google runs the
-    %% platform - all Shogun does is call it as an external source. We
-    %% create the cloud functions
-    G[[Firebase]]
+    %% Only Firebase Auth and Cloud Messaging are external: Google runs
+    %% them and Shogun just calls them. The Firebase parts we write and
+    %% deploy (Functions, Firestore data, Hosting, Storage) are inside
+    %% the Shogun box. See 03-containers.md.
+    G[[Firebase Auth and Messaging]]
     H[[MusicBrainz]]
     I[[TMDB]]
     J[("Owner's media folders")]
@@ -30,7 +31,7 @@ flowchart TD
     E -->|Connects from outside the owner's home through| K
     K -->|Carries outside connections to| A
 
-    A -->|Signs users in, stores accounts and groups, and sends push notifications using| G
+    A -->|Signs users in and sends push notifications using| G
     A -->|Looks up music details from| H
     A -->|Looks up movie and show details from| I
     A -->|Reads media files from| J
@@ -48,6 +49,9 @@ flowchart TD
 
 ### How Roles Change
 A Visitor becomes an Account Holder by signing up. An Account Holder becomes a Server Owner by claiming a server, and becomes a Member by accepting an invite. Every Owner and Member is still an Account Holder, so each box's arrow lists only what that role adds.
+
+### Why Only Part of Firebase is External
+Firebase Auth and Firebase Cloud Messaging are Google's services: Shogun configures them and calls them, but doesn't write code that runs inside them, so they sit outside the Shogun box. The Firebase parts we write and deploy (Cloud Functions, the Firestore data and its Security Rules, Hosting, and Storage) are part of Shogun, which keeps our own code inside the threat model. The container diagram ([03-containers.md](03-containers.md)) shows those parts.
 
 ### Why Remote Access is a Generic Box
 The owner chooses how their Server is reached from outside the home (Tailscale, their own domain with port forwarding, or a tunnel), so the diagram names the role, not a vendor. US-04 (Reach my server from anywhere) breaks without some remote access path, so it belongs on the diagram even though Shogun doesn't run it.
