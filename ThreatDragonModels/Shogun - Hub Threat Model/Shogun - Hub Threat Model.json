@@ -86,6 +86,8 @@
                 "8a5d36d3-9000-4b44-9785-f3c9ce6c267c",
                 "e3e7eca4-7127-4976-ab12-24dbeff1ee26",
                 "340c5fde-50af-4b4b-b03b-561a3ef67925",
+                "98436597-239b-4080-b47e-4228dd397692",
+                "086f2c52-523a-4899-a8dd-4e4bc7333025",
                 "9b9c79bd-dfb2-4a4e-b9ef-ce0e31f93952"
               ],
               "containedElements": [
@@ -1804,7 +1806,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Sends push notifications",
+              "name": "sends push notifications",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1820,7 +1822,7 @@
               ]
             },
             "labels": [
-              "Sends push notifications"
+              "Sends push noti"
             ],
             "id": "340c5fde-50af-4b4b-b03b-561a3ef67925",
             "source": {
@@ -1835,6 +1837,180 @@
               {
                 "x": 670,
                 "y": 770
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "delivers push notifications",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "delivers push notifications"
+            ],
+            "id": "2a8fe2e6-2244-4a68-8989-d774fa53dfb4",
+            "source": {
+              "x": 993,
+              "y": 695
+            },
+            "target": {
+              "cell": "58d5a47b-927d-4534-8794-3a94041131bc",
+              "port": "1e829fb6-81dd-45f9-9af2-85a2bc577bfa"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Fetches JWKS public keys",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "b606306f-4531-49b1-80b8-a1487a4aec1c"
+              ]
+            },
+            "labels": [
+              "Fetches JWKS public keys"
+            ],
+            "id": "98436597-239b-4080-b47e-4228dd397692",
+            "source": {
+              "x": 1400,
+              "y": 655
+            },
+            "target": {
+              "cell": "4cfe032e-a1c3-40f4-9555-299292145b31",
+              "port": "ad71924e-8c39-488a-988b-8cb858840043"
+            },
+            "vertices": [
+              {
+                "x": 1350,
+                "y": 740
+              },
+              {
+                "x": 960,
+                "y": 770
+              },
+              {
+                "x": 690,
+                "y": 770
+              },
+              {
+                "x": 340,
+                "y": 720
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "register, heartbeat,\nmember list, push\nrequests",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "b606306f-4531-49b1-80b8-a1487a4aec1c"
+              ]
+            },
+            "labels": [
+              "register, heartbeat,\nmember list, push\nrequests"
+            ],
+            "id": "086f2c52-523a-4899-a8dd-4e4bc7333025",
+            "source": {
+              "cell": "58d5a47b-927d-4534-8794-3a94041131bc",
+              "port": "bdf0738a-c2c3-48cc-96a4-99cc7dc1a99a"
+            },
+            "target": {
+              "cell": "7ab74986-27dd-4962-8db2-ddc62e2ce0d8",
+              "port": "26e4399b-4eb6-4383-be26-52ba3b3d1aad"
+            },
+            "vertices": [
+              {
+                "x": 1380,
+                "y": 330
+              },
+              {
+                "x": 1120,
+                "y": 330
+              },
+              {
+                "x": 610,
+                "y": 520
               }
             ]
           },
