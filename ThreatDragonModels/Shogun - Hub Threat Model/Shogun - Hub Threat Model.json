@@ -21,8 +21,213 @@
         "cells": [
           {
             "position": {
-              "x": 200,
-              "y": 140
+              "x": 210,
+              "y": 225
+            },
+            "size": {
+              "width": 610,
+              "height": 170
+            },
+            "attrs": {
+              "label": {
+                "text": "User's Browser"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "c2577782-08f8-4bf3-aa80-eaee9e06e57f",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "User's Browser",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": [
+                "450d48c9-5553-4132-9269-1a1cde280bfc"
+              ]
+            }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": -1,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "c660c8ac-82a9-426a-a27b-06b5e7359f39",
+            "source": {
+              "x": 270,
+              "y": 80
+            },
+            "target": {
+              "x": 280,
+              "y": 230
+            }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": -1,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "7070aba4-deea-493d-b294-fa2b55d3e10e",
+            "source": {
+              "x": 410,
+              "y": 80
+            },
+            "target": {
+              "x": 420,
+              "y": 230
+            }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": -1,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "df2b8641-fb16-4e34-b584-75ec079e3a71",
+            "source": {
+              "x": 570,
+              "y": 80
+            },
+            "target": {
+              "x": 570,
+              "y": 230
+            }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": -1,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "4f2f430b-9809-4517-8e1a-e867e5b27f8b",
+            "source": {
+              "x": 720,
+              "y": 80
+            },
+            "target": {
+              "x": 730,
+              "y": 230
+            }
+          },
+          {
+            "position": {
+              "x": 190,
+              "y": 550.0000000000025
+            },
+            "size": {
+              "width": 650,
+              "height": 230
+            },
+            "attrs": {
+              "label": {
+                "text": "Google's Cloud (Firebase)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "b606306f-4531-49b1-80b8-a1487a4aec1c",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Google's Cloud (Firebase)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": [
+                "404f56c3-785a-4281-a57b-d0f8149a5d42",
+                "7c70c831-b40b-465a-ad91-f209ac885b1d",
+                "4cfe032e-a1c3-40f4-9555-299292145b31",
+                "7ab74986-27dd-4962-8db2-ddc62e2ce0d8",
+                "da64a1fa-9767-4d07-b23a-d89814a8471d",
+                "dfc62812-d331-4f34-90f1-3cac5ce4ce7c"
+              ]
+            }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": -1,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "c1529b8a-0247-40bb-a9df-42278330d7b4",
+            "source": {
+              "x": 850,
+              "y": 660
+            },
+            "target": {
+              "cell": "58d5a47b-927d-4534-8794-3a94041131bc",
+              "port": "1e829fb6-81dd-45f9-9af2-85a2bc577bfa"
+            }
+          },
+          {
+            "position": {
+              "x": 210,
+              "y": 20
             },
             "size": {
               "width": 112.5,
@@ -138,8 +343,8 @@
           },
           {
             "position": {
-              "x": 380,
-              "y": 140
+              "x": 360,
+              "y": 20
             },
             "size": {
               "width": 112.5,
@@ -255,8 +460,8 @@
           },
           {
             "position": {
-              "x": 570,
-              "y": 140
+              "x": 520,
+              "y": 20
             },
             "size": {
               "width": 112.5,
@@ -372,8 +577,8 @@
           },
           {
             "position": {
-              "x": 747,
-              "y": 140
+              "x": 677,
+              "y": 20
             },
             "size": {
               "width": 112.5,
@@ -489,8 +694,8 @@
           },
           {
             "position": {
-              "x": 921,
-              "y": 140
+              "x": 677,
+              "y": 575.0000000000025
             },
             "size": {
               "width": 112.5,
@@ -606,8 +811,8 @@
           },
           {
             "position": {
-              "x": 1092,
-              "y": 140
+              "x": 520,
+              "y": 575.0000000000025
             },
             "size": {
               "width": 112.5,
@@ -723,8 +928,8 @@
           },
           {
             "position": {
-              "x": 1275,
-              "y": 140
+              "x": 1044.5,
+              "y": 635.0000000000025
             },
             "size": {
               "width": 112.5,
@@ -840,8 +1045,8 @@
           },
           {
             "position": {
-              "x": 510,
-              "y": 282.00000000000006
+              "x": 440,
+              "y": 260
             },
             "size": {
               "width": 130,
@@ -960,8 +1165,8 @@
           },
           {
             "position": {
-              "x": 682.5,
-              "y": 282.00000000000006
+              "x": 201.25,
+              "y": 595.0000000000025
             },
             "size": {
               "width": 130,
@@ -1080,8 +1285,8 @@
           },
           {
             "position": {
-              "x": 859.5,
-              "y": 282.00000000000006
+              "x": 342.5,
+              "y": 595.0000000000025
             },
             "size": {
               "width": 130,
@@ -1200,8 +1405,8 @@
           },
           {
             "position": {
-              "x": 590,
-              "y": 460
+              "x": 516.25,
+              "y": 670
             },
             "size": {
               "width": 120,
@@ -1324,8 +1529,8 @@
           },
           {
             "position": {
-              "x": 812.5,
-              "y": 460
+              "x": 673.25,
+              "y": 670
             },
             "size": {
               "width": 120,
