@@ -46,9 +46,9 @@
               "crossingFlows": [
                 "fedf9ccc-118f-48a6-a0cc-1541f9ff2112",
                 "1179ea45-8b6e-4dc6-aa03-b402c5d371bd",
-                "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
                 "8a5d36d3-9000-4b44-9785-f3c9ce6c267c",
                 "2a8fe2e6-2244-4a68-8989-d774fa53dfb4",
+                "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
                 "9b9c79bd-dfb2-4a4e-b9ef-ce0e31f93952"
               ],
               "containedElements": [
@@ -83,9 +83,9 @@
               "crossingFlows": [
                 "fedf9ccc-118f-48a6-a0cc-1541f9ff2112",
                 "1179ea45-8b6e-4dc6-aa03-b402c5d371bd",
-                "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
                 "8a5d36d3-9000-4b44-9785-f3c9ce6c267c",
                 "086f2c52-523a-4899-a8dd-4e4bc7333025",
+                "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
                 "9b9c79bd-dfb2-4a4e-b9ef-ce0e31f93952",
                 "98436597-239b-4080-b47e-4228dd397692"
               ],
@@ -1745,61 +1745,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "server passes,\ninvites, claiming,\npublishing themes",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": true,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "c2577782-08f8-4bf3-aa80-eaee9e06e57f",
-                "b606306f-4531-49b1-80b8-a1487a4aec1c"
-              ]
-            },
-            "labels": [
-              "server passes,\ninvites, claiming,\npublishing themes"
-            ],
-            "id": "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
-            "source": {
-              "cell": "450d48c9-5553-4132-9269-1a1cde280bfc",
-              "port": "ad71924e-8c39-488a-988b-8cb858840043"
-            },
-            "target": {
-              "cell": "7ab74986-27dd-4962-8db2-ddc62e2ce0d8",
-              "port": "9b065f73-66d6-47e7-8143-281050227920"
-            },
-            "vertices": [
-              {
-                "x": 430,
-                "y": 510
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "reads servers and invites,\nlistens for status change",
               "description": "",
               "outOfScope": false,
@@ -1947,6 +1892,94 @@
             "vertices": [
               {
                 "x": 1330,
+                "y": 510
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "server passes,\ninvites, claiming,\npublishing themes",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "eae1e95f-4d22-4abb-9494-2f75cd6b05d0",
+                  "title": "Claim Codes",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Stolen or brute-forced claim code lets an attacker take over someone's server",
+                  "mitigation": "Claim codes expire quickly, work once, and claim attempts are rate-limited per user",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                },
+                {
+                  "id": "f38903ff-6763-447d-9349-b23e23a1b882",
+                  "title": "Invite Links",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Leaked invite link lets a stranger join a server",
+                  "mitigation": "Invites expire and have a use limit; owner can approve each join and revoke invites",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "c2577782-08f8-4bf3-aa80-eaee9e06e57f",
+                "b606306f-4531-49b1-80b8-a1487a4aec1c"
+              ],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "server passes,\ninvites, claiming,\npublishing themes"
+            ],
+            "id": "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
+            "source": {
+              "cell": "450d48c9-5553-4132-9269-1a1cde280bfc",
+              "port": "ad71924e-8c39-488a-988b-8cb858840043"
+            },
+            "target": {
+              "cell": "7ab74986-27dd-4962-8db2-ddc62e2ce0d8",
+              "port": "9b065f73-66d6-47e7-8143-281050227920"
+            },
+            "vertices": [
+              {
+                "x": 430,
                 "y": 510
               }
             ]
@@ -2325,6 +2358,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 0
+    "threatTop": 2
   }
 }
