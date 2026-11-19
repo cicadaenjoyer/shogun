@@ -1018,7 +1018,7 @@
               "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
-              "isWebApplication": false,
+              "isWebApplication": true,
               "privilegeLevel": "",
               "threats": []
             }
@@ -1290,7 +1290,54 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": false,
-              "isEncrypted": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "df6734a1-2c44-47a8-811a-f507db2f58e8",
+            "source": {
+              "x": 1045,
+              "y": 670
+            },
+            "target": {
+              "x": 850,
+              "y": 670
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
@@ -1336,7 +1383,7 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": false,
-              "isEncrypted": false,
+              "isEncrypted": true,
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
@@ -1382,7 +1429,7 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": false,
-              "isEncrypted": false,
+              "isEncrypted": true,
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
@@ -1428,7 +1475,7 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": false,
-              "isEncrypted": false,
+              "isEncrypted": true,
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
@@ -1445,52 +1492,6 @@
             "target": {
               "x": 730,
               "y": 220
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "df6734a1-2c44-47a8-811a-f507db2f58e8",
-            "source": {
-              "x": 1045,
-              "y": 670
-            },
-            "target": {
-              "x": 850,
-              "y": 670
             }
           },
           {
@@ -1612,7 +1613,7 @@
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
-              "storesCredentials": false,
+              "storesCredentials": true,
               "storesInventory": false,
               "threats": []
             }
