@@ -45,11 +45,11 @@
               "hasOpenThreats": false,
               "crossingFlows": [
                 "fedf9ccc-118f-48a6-a0cc-1541f9ff2112",
-                "1179ea45-8b6e-4dc6-aa03-b402c5d371bd",
-                "8a5d36d3-9000-4b44-9785-f3c9ce6c267c",
                 "2a8fe2e6-2244-4a68-8989-d774fa53dfb4",
+                "8a5d36d3-9000-4b44-9785-f3c9ce6c267c",
+                "9b9c79bd-dfb2-4a4e-b9ef-ce0e31f93952",
                 "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
-                "9b9c79bd-dfb2-4a4e-b9ef-ce0e31f93952"
+                "1179ea45-8b6e-4dc6-aa03-b402c5d371bd"
               ],
               "containedElements": [
                 "450d48c9-5553-4132-9269-1a1cde280bfc"
@@ -82,12 +82,12 @@
               "hasOpenThreats": false,
               "crossingFlows": [
                 "fedf9ccc-118f-48a6-a0cc-1541f9ff2112",
-                "1179ea45-8b6e-4dc6-aa03-b402c5d371bd",
-                "8a5d36d3-9000-4b44-9785-f3c9ce6c267c",
                 "086f2c52-523a-4899-a8dd-4e4bc7333025",
-                "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
+                "8a5d36d3-9000-4b44-9785-f3c9ce6c267c",
                 "9b9c79bd-dfb2-4a4e-b9ef-ce0e31f93952",
-                "98436597-239b-4080-b47e-4228dd397692"
+                "98436597-239b-4080-b47e-4228dd397692",
+                "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
+                "1179ea45-8b6e-4dc6-aa03-b402c5d371bd"
               ],
               "containedElements": [
                 "404f56c3-785a-4281-a57b-d0f8149a5d42",
@@ -1172,8 +1172,8 @@
                 "text": "Hub Functions"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1270,12 +1270,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "fd13c50b-468b-4795-bb63-0f894cdceaea",
+                  "title": "Denying Actions",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Spoofing",
+                  "description": "Admin or theme author denies an action they took",
+                  "mitigation": "Functions write an audit log recording the user ID, action, target, and time; clients can't edit it",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1682,186 +1704,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "uploads and\ndownloads\npreviews",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": true,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "c2577782-08f8-4bf3-aa80-eaee9e06e57f",
-                "b606306f-4531-49b1-80b8-a1487a4aec1c"
-              ]
-            },
-            "labels": [
-              "uploads and\ndownloads\npreviews"
-            ],
-            "id": "1179ea45-8b6e-4dc6-aa03-b402c5d371bd",
-            "source": {
-              "cell": "450d48c9-5553-4132-9269-1a1cde280bfc",
-              "port": "3e0f4295-5de7-4735-95eb-2af3d3b5ece3"
-            },
-            "target": {
-              "cell": "dfc62812-d331-4f34-90f1-3cac5ce4ce7c",
-              "port": "b211aaca-5d3b-4b2b-8289-1b1566a782fe"
-            },
-            "vertices": [
-              {
-                "x": 100,
-                "y": 510
-              },
-              {
-                "x": 140,
-                "y": 730
-              },
-              {
-                "x": 500,
-                "y": 770
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "reads servers and invites,\nlistens for status change",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": true,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "c2577782-08f8-4bf3-aa80-eaee9e06e57f",
-                "b606306f-4531-49b1-80b8-a1487a4aec1c"
-              ]
-            },
-            "labels": [
-              "reads servers and invites,\nlistens for status change"
-            ],
-            "id": "8a5d36d3-9000-4b44-9785-f3c9ce6c267c",
-            "source": {
-              "cell": "450d48c9-5553-4132-9269-1a1cde280bfc",
-              "port": "ad71924e-8c39-488a-988b-8cb858840043"
-            },
-            "target": {
-              "cell": "da64a1fa-9767-4d07-b23a-d89814a8471d",
-              "port": "53f1bb95-b056-4cd0-88ff-5a4754be19c5"
-            },
-            "vertices": [
-              {
-                "x": 660,
-                "y": 480
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "register, heartbeat,\nmember list, push\nrequests",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": true,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "b606306f-4531-49b1-80b8-a1487a4aec1c"
-              ]
-            },
-            "labels": [
-              "register, heartbeat,\nmember list, push\nrequests"
-            ],
-            "id": "086f2c52-523a-4899-a8dd-4e4bc7333025",
-            "source": {
-              "cell": "58d5a47b-927d-4534-8794-3a94041131bc",
-              "port": "bdf0738a-c2c3-48cc-96a4-99cc7dc1a99a"
-            },
-            "target": {
-              "cell": "7ab74986-27dd-4962-8db2-ddc62e2ce0d8",
-              "port": "26e4399b-4eb6-4383-be26-52ba3b3d1aad"
-            },
-            "vertices": [
-              {
-                "x": 1380,
-                "y": 330
-              },
-              {
-                "x": 1120,
-                "y": 330
-              },
-              {
-                "x": 610,
-                "y": 520
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "delivers push notifications",
               "description": "",
               "outOfScope": false,
@@ -1917,7 +1759,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "server passes,\ninvites, claiming,\npublishing themes",
+              "name": "register, heartbeat,\nmember list, push\nrequests",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1929,29 +1771,124 @@
               "protocol": "",
               "threats": [
                 {
-                  "id": "eae1e95f-4d22-4abb-9494-2f75cd6b05d0",
-                  "title": "Claim Codes",
+                  "id": "f35cec8d-42ae-4408-b673-d27540534ae7",
+                  "title": "Server Credentials",
                   "status": "Open",
                   "severity": "High",
                   "type": "Tampering",
-                  "description": "Stolen or brute-forced claim code lets an attacker take over someone's server",
-                  "mitigation": "Claim codes expire quickly, work once, and claim attempts are rate-limited per user",
+                  "description": "Stolen server credential lets someone send fake heartbeats or download the member list",
+                  "mitigation": "Hub stores only a hash; owner can revoke and rotate the credential",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 1,
+                  "number": 3,
                   "score": ""
                 },
                 {
-                  "id": "f38903ff-6763-447d-9349-b23e23a1b882",
-                  "title": "Invite Links",
+                  "id": "1eab1950-5186-4937-abd5-88d2aae70fc8",
+                  "title": "Squatting",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Medium",
                   "type": "Tampering",
-                  "description": "Leaked invite link lets a stranger join a server",
-                  "mitigation": "Invites expire and have a use limit; owner can approve each join and revoke invites",
+                  "description": "Squatting; registering a server ID that belongs to someone else's server",
+                  "mitigation": "Register refuses an ID that's already claimed",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 2,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "b606306f-4531-49b1-80b8-a1487a4aec1c"
+              ],
+              "threatFrequency": {
+                "tampering": 4,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "register, heartbeat,\nmember list, push\nrequests"
+            ],
+            "id": "086f2c52-523a-4899-a8dd-4e4bc7333025",
+            "source": {
+              "cell": "58d5a47b-927d-4534-8794-3a94041131bc",
+              "port": "bdf0738a-c2c3-48cc-96a4-99cc7dc1a99a"
+            },
+            "target": {
+              "cell": "7ab74986-27dd-4962-8db2-ddc62e2ce0d8",
+              "port": "26e4399b-4eb6-4383-be26-52ba3b3d1aad"
+            },
+            "vertices": [
+              {
+                "x": 1380,
+                "y": 330
+              },
+              {
+                "x": 1120,
+                "y": 330
+              },
+              {
+                "x": 610,
+                "y": 520
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "reads servers and invites,\nlistens for status change",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "e705309c-5fbc-482f-8215-f38b61a81712",
+                  "title": "Tampering Servers",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "User edits other people's server, invite, or profile documents directly through the SDK",
+                  "mitigation": "Firestore Security Rules deny client writes to sensitive documents; those writes go only through Hub functions",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                },
+                {
+                  "id": "c69ba2ff-a51a-4acb-81b2-f61df8063764",
+                  "title": "Reading Server Info",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "User reads other servers' addresses, invites, or push tokens",
+                  "mitigation": "Rules allow a server's documents to be read only by its owner and members; push tokens are never readable by clients",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
                   "score": ""
                 }
               ],
@@ -1960,27 +1897,27 @@
                 "b606306f-4531-49b1-80b8-a1487a4aec1c"
               ],
               "threatFrequency": {
-                "tampering": 2,
-                "informationDisclosure": 0,
+                "tampering": 1,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
             "labels": [
-              "server passes,\ninvites, claiming,\npublishing themes"
+              "reads servers and invites,\nlistens for status change"
             ],
-            "id": "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
+            "id": "8a5d36d3-9000-4b44-9785-f3c9ce6c267c",
             "source": {
               "cell": "450d48c9-5553-4132-9269-1a1cde280bfc",
               "port": "ad71924e-8c39-488a-988b-8cb858840043"
             },
             "target": {
-              "cell": "7ab74986-27dd-4962-8db2-ddc62e2ce0d8",
-              "port": "9b065f73-66d6-47e7-8143-281050227920"
+              "cell": "da64a1fa-9767-4d07-b23a-d89814a8471d",
+              "port": "53f1bb95-b056-4cd0-88ff-5a4754be19c5"
             },
             "vertices": [
               {
-                "x": 430,
-                "y": 510
+                "x": 660,
+                "y": 480
               }
             ]
           },
@@ -2352,12 +2289,235 @@
                 "y": 720
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 15,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "server passes,\ninvites, claiming,\npublishing themes",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "eae1e95f-4d22-4abb-9494-2f75cd6b05d0",
+                  "title": "Claim Codes",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Stolen or brute-forced claim code lets an attacker take over someone's server",
+                  "mitigation": "Claim codes expire quickly, work once, and claim attempts are rate-limited per user",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                },
+                {
+                  "id": "f38903ff-6763-447d-9349-b23e23a1b882",
+                  "title": "Invite Links",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Leaked invite link lets a stranger join a server",
+                  "mitigation": "Invites expire and have a use limit; owner can approve each join and revoke invites",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "c9588394-ff5d-4bd5-946e-e9f91b496a67",
+                  "title": "Malicious Themes",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Malicious themes carries script, CSS, or SVG that runs in other users' browsers",
+                  "mitigation": "Themes are data only (JSON); a function checks them against a schema; Storage rules limit file type (no SVG) and size",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                },
+                {
+                  "id": "f9275109-d522-403b-acbf-c7768acdde40",
+                  "title": "Calling Admin Functions",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "A normal user calls the admin moderation functions",
+                  "mitigation": "Each admin function checks for an admin custom claim on the caller's token",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                },
+                {
+                  "id": "0dfccdae-483a-4af5-93d4-1e481cbf3156",
+                  "title": "Spam Calls",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Spam calls or uploads run up the Firebase bill",
+                  "mitigation": "App Check, per-user rate limits, Storage size limits, and budget alerts",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "c2577782-08f8-4bf3-aa80-eaee9e06e57f",
+                "b606306f-4531-49b1-80b8-a1487a4aec1c"
+              ],
+              "threatFrequency": {
+                "tampering": 6,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "server passes,\ninvites, claiming,\npublishing themes"
+            ],
+            "id": "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
+            "source": {
+              "cell": "450d48c9-5553-4132-9269-1a1cde280bfc",
+              "port": "ad71924e-8c39-488a-988b-8cb858840043"
+            },
+            "target": {
+              "cell": "7ab74986-27dd-4962-8db2-ddc62e2ce0d8",
+              "port": "9b065f73-66d6-47e7-8143-281050227920"
+            },
+            "vertices": [
+              {
+                "x": 430,
+                "y": 510
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 16,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "uploads and\ndownloads\npreviews",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "58d987a1-eddb-4be7-9b93-42d0ffa3f989",
+                  "title": "Malicious Themes",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Malicious themes carries script, CSS, or SVG that runs in other users' browsers",
+                  "mitigation": "Themes are data only (JSON); a function checks them against a schema; Storage rules limit file type (no SVG) and size",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                },
+                {
+                  "id": "e0ae8bd4-fb0c-4aad-bf7f-021905ee7f7f",
+                  "title": "Spam Calls",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Spam calls or uploads run up the Firebase bill (denial of wallet)",
+                  "mitigation": " App Check, per-user rate limits, Storage size limits, and budget alerts",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "c2577782-08f8-4bf3-aa80-eaee9e06e57f",
+                "b606306f-4531-49b1-80b8-a1487a4aec1c"
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
+            },
+            "labels": [
+              "uploads and\ndownloads\npreviews"
+            ],
+            "id": "1179ea45-8b6e-4dc6-aa03-b402c5d371bd",
+            "source": {
+              "cell": "450d48c9-5553-4132-9269-1a1cde280bfc",
+              "port": "3e0f4295-5de7-4735-95eb-2af3d3b5ece3"
+            },
+            "target": {
+              "cell": "dfc62812-d331-4f34-90f1-3cac5ce4ce7c",
+              "port": "b211aaca-5d3b-4b2b-8289-1b1566a782fe"
+            },
+            "vertices": [
+              {
+                "x": 100,
+                "y": 510
+              },
+              {
+                "x": 140,
+                "y": 730
+              },
+              {
+                "x": 500,
+                "y": 770
+              }
+            ]
           }
         ]
       }
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 2
+    "threatTop": 13
   }
 }
