@@ -48,6 +48,7 @@
                 "1179ea45-8b6e-4dc6-aa03-b402c5d371bd",
                 "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
                 "8a5d36d3-9000-4b44-9785-f3c9ce6c267c",
+                "2a8fe2e6-2244-4a68-8989-d774fa53dfb4",
                 "9b9c79bd-dfb2-4a4e-b9ef-ce0e31f93952"
               ],
               "containedElements": [
@@ -1343,52 +1344,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "delivers push notifications",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "delivers push notifications"
-            ],
-            "id": "2a8fe2e6-2244-4a68-8989-d774fa53dfb4",
-            "source": {
-              "x": 993,
-              "y": 695
-            },
-            "target": {
-              "cell": "58d5a47b-927d-4534-8794-3a94041131bc",
-              "port": "1e829fb6-81dd-45f9-9af2-85a2bc577bfa"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "disables accounts",
               "description": "",
               "outOfScope": false,
@@ -1939,6 +1894,60 @@
               {
                 "x": 610,
                 "y": 520
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "delivers push notifications",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "c2577782-08f8-4bf3-aa80-eaee9e06e57f"
+              ]
+            },
+            "labels": [
+              "delivers push notifications"
+            ],
+            "id": "2a8fe2e6-2244-4a68-8989-d774fa53dfb4",
+            "source": {
+              "x": 993,
+              "y": 695
+            },
+            "target": {
+              "cell": "450d48c9-5553-4132-9269-1a1cde280bfc",
+              "port": "26e4399b-4eb6-4383-be26-52ba3b3d1aad"
+            },
+            "vertices": [
+              {
+                "x": 1330,
+                "y": 510
               }
             ]
           },
