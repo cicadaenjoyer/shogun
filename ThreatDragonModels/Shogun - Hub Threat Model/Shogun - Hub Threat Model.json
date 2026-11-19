@@ -13,9 +13,9 @@
     "diagrams": [
       {
         "id": 0,
-        "title": "New STRIDE diagram",
+        "title": "Hub",
         "diagramType": "STRIDE",
-        "placeholder": "New STRIDE diagram description",
+        "placeholder": "Threat model describing the Shogun Hub",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.6.2",
         "cells": [
