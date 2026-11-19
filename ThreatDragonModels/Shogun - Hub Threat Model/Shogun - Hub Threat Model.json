@@ -45,8 +45,8 @@
               "hasOpenThreats": false,
               "crossingFlows": [
                 "fedf9ccc-118f-48a6-a0cc-1541f9ff2112",
-                "2a8fe2e6-2244-4a68-8989-d774fa53dfb4",
                 "8a5d36d3-9000-4b44-9785-f3c9ce6c267c",
+                "2a8fe2e6-2244-4a68-8989-d774fa53dfb4",
                 "9b9c79bd-dfb2-4a4e-b9ef-ce0e31f93952",
                 "70adf4c6-38d2-4ac4-877b-cc94dfd9b01c",
                 "1179ea45-8b6e-4dc6-aa03-b402c5d371bd"
@@ -1288,13 +1288,26 @@
                   "new": false,
                   "number": 11,
                   "score": ""
+                },
+                {
+                  "id": "9016ddf1-7b2b-4529-bbd9-75d93e4f89e0",
+                  "title": "Key Leaks",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Server-pass signing key leaks, so anyone can forge passes for any server",
+                  "mitigation": "Key kept in the Secret Manager with only the signing function allowed to read it; key IDs in JWKS so keys can be rotated ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 1,
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
@@ -1688,60 +1701,6 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "delivers push notifications",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": true,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "c2577782-08f8-4bf3-aa80-eaee9e06e57f"
-              ]
-            },
-            "labels": [
-              "delivers push notifications"
-            ],
-            "id": "2a8fe2e6-2244-4a68-8989-d774fa53dfb4",
-            "source": {
-              "x": 993,
-              "y": 695
-            },
-            "target": {
-              "cell": "450d48c9-5553-4132-9269-1a1cde280bfc",
-              "port": "26e4399b-4eb6-4383-be26-52ba3b3d1aad"
-            },
-            "vertices": [
-              {
-                "x": 1330,
-                "y": 510
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
                 "stroke": "red",
                 "strokeWidth": 2.5,
                 "targetMarker": {
@@ -1918,6 +1877,80 @@
               {
                 "x": 660,
                 "y": 480
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "delivers push notifications",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "03152366-caf4-4630-80cd-051ebdc5d968",
+                  "title": "Info Leak",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Push notification text shows private info, such as chat messages or server names, on a lock screen",
+                  "mitigation": "Keep notification text minimal; the app fetches details after the user opens it",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "c2577782-08f8-4bf3-aa80-eaee9e06e57f"
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "delivers push notifications"
+            ],
+            "id": "2a8fe2e6-2244-4a68-8989-d774fa53dfb4",
+            "source": {
+              "x": 993,
+              "y": 695
+            },
+            "target": {
+              "cell": "450d48c9-5553-4132-9269-1a1cde280bfc",
+              "port": "26e4399b-4eb6-4383-be26-52ba3b3d1aad"
+            },
+            "vertices": [
+              {
+                "x": 1330,
+                "y": 510
               }
             ]
           },
@@ -2228,7 +2261,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2249,15 +2283,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "70c72307-0942-4639-9f4c-05f2c5d5e3db",
+                  "title": "Fake Public Keys",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Server is tricked into trusting fake public keys",
+                  "mitigation": "JWKS URL build into the Server, HTTPs only, keys cached",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "b606306f-4531-49b1-80b8-a1487a4aec1c"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Fetches JWKS public keys"
@@ -2379,7 +2432,7 @@
                   "title": "Spam Calls",
                   "status": "Open",
                   "severity": "Medium",
-                  "type": "Information disclosure",
+                  "type": "Denial of service",
                   "description": "Spam calls or uploads run up the Firebase bill",
                   "mitigation": "App Check, per-user rate limits, Storage size limits, and budget alerts",
                   "modelType": "STRIDE",
@@ -2395,7 +2448,7 @@
               "threatFrequency": {
                 "tampering": 6,
                 "informationDisclosure": 1,
-                "denialOfService": 0
+                "denialOfService": 1
               }
             },
             "labels": [
@@ -2518,6 +2571,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 13
+    "threatTop": 16
   }
 }
