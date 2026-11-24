@@ -1058,11 +1058,13 @@
               },
               "topLine": {
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "stroke": "#333333"
               },
               "bottomLine": {
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "stroke": "#333333"
               }
             },
             "visible": true,
@@ -1182,11 +1184,13 @@
               },
               "topLine": {
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "stroke": "#333333"
               },
               "bottomLine": {
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "stroke": "#333333"
               }
             },
             "visible": true,
@@ -1302,7 +1306,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1350,7 +1355,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1398,7 +1404,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1447,7 +1454,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1495,7 +1503,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1543,7 +1552,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1572,19 +1582,14 @@
             ],
             "id": "cd5f958c-ddf0-4866-b623-0bc484717935",
             "source": {
-              "cell": "842007c7-5557-459d-b10a-51c46a12e284",
-              "port": "a4cba14e-6372-4548-b72f-0bab2362b3f7"
-            },
-            "target": {
               "cell": "e96c3e27-a1dd-4665-89d8-789be8393dfc",
               "port": "581fa762-dfb7-46f1-a1c9-eb8ffd11372b"
             },
-            "vertices": [
-              {
-                "x": 960,
-                "y": 560
-              }
-            ]
+            "target": {
+              "cell": "842007c7-5557-459d-b10a-51c46a12e284",
+              "port": "a4cba14e-6372-4548-b72f-0bab2362b3f7"
+            },
+            "vertices": []
           },
           {
             "shape": "flow",
@@ -1597,7 +1602,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1626,19 +1632,14 @@
             ],
             "id": "820d8a92-b170-402f-a96e-6f11f7f51994",
             "source": {
-              "cell": "842007c7-5557-459d-b10a-51c46a12e284",
-              "port": "b35ecdd9-7505-41fb-aae5-c38ddbd4f28f"
+              "cell": "e96c3e27-a1dd-4665-89d8-789be8393dfc",
+              "port": "0e139c28-3c91-4bd0-b191-512055650dae"
             },
             "target": {
               "cell": "7ee96088-507a-40aa-b776-681caa3fe23b",
-              "port": "581fa762-dfb7-46f1-a1c9-eb8ffd11372b"
+              "port": "953afc78-0e4f-4527-be04-a599f5561164"
             },
-            "vertices": [
-              {
-                "x": 1220,
-                "y": 620
-              }
-            ]
+            "vertices": []
           },
           {
             "shape": "flow",
@@ -1651,7 +1652,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1680,17 +1682,17 @@
             ],
             "id": "414c5863-86c8-473e-8dda-491286dc696d",
             "source": {
-              "cell": "842007c7-5557-459d-b10a-51c46a12e284",
-              "port": "b35ecdd9-7505-41fb-aae5-c38ddbd4f28f"
+              "cell": "e96c3e27-a1dd-4665-89d8-789be8393dfc",
+              "port": "581fa762-dfb7-46f1-a1c9-eb8ffd11372b"
             },
             "target": {
               "cell": "2a87bff2-930b-4cc1-b590-9b26824d7a31",
-              "port": "18fe4fe2-58ce-4ccf-8c17-55f6cea591e6"
+              "port": "71bc419b-5d43-4edf-a098-c01188269149"
             },
             "vertices": [
               {
-                "x": 1230,
-                "y": 530
+                "x": 1190,
+                "y": 555
               }
             ]
           },
@@ -1705,7 +1707,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1734,8 +1737,8 @@
             ],
             "id": "cfbced38-0ca7-4ca9-a96e-421cb177805b",
             "source": {
-              "cell": "842007c7-5557-459d-b10a-51c46a12e284",
-              "port": "a4cba14e-6372-4548-b72f-0bab2362b3f7"
+              "cell": "e96c3e27-a1dd-4665-89d8-789be8393dfc",
+              "port": "aef4cce9-37b7-43db-a049-cb19aedd7c24"
             },
             "target": {
               "cell": "42556eef-7216-432d-8f61-f9b50fcc2187",
@@ -1743,8 +1746,8 @@
             },
             "vertices": [
               {
-                "x": 1060,
-                "y": 360
+                "x": 1110,
+                "y": 345
               }
             ]
           },
@@ -1759,7 +1762,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1768,7 +1772,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "reads\nmedia\nfolders",
+              "name": "reads media files",
               "description": "file system",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1782,11 +1786,12 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "reads\nmedia\nfolders"
+              "reads media files"
             ],
             "id": "cf7b88c1-01eb-41b6-b0b2-c832d85f8b9b",
             "source": {
-              "cell": "7ee96088-507a-40aa-b776-681caa3fe23b"
+              "cell": "7ee96088-507a-40aa-b776-681caa3fe23b",
+              "port": "0e139c28-3c91-4bd0-b191-512055650dae"
             },
             "target": {
               "cell": "42556eef-7216-432d-8f61-f9b50fcc2187",
@@ -1804,7 +1809,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1833,17 +1839,17 @@
             ],
             "id": "67e76c9c-8a3b-4288-b94d-3b0c8bb32a19",
             "source": {
-              "cell": "842007c7-5557-459d-b10a-51c46a12e284",
-              "port": "b35ecdd9-7505-41fb-aae5-c38ddbd4f28f"
+              "cell": "e96c3e27-a1dd-4665-89d8-789be8393dfc",
+              "port": "aef4cce9-37b7-43db-a049-cb19aedd7c24"
             },
             "target": {
               "cell": "079a2ef2-59c0-4289-961d-4f0c6a60960a",
-              "port": "71bc419b-5d43-4edf-a098-c01188269149"
+              "port": "929ad461-b001-4e6c-b7c6-1b9a2a3ddab1"
             },
             "vertices": [
               {
-                "x": 1370,
-                "y": 670
+                "x": 1180,
+                "y": 305
               }
             ]
           },
@@ -1858,7 +1864,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1912,7 +1919,8 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "strokeWidth": 1.5
               }
             },
             "width": 200,
@@ -1970,11 +1978,13 @@
               },
               "topLine": {
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "stroke": "#333333"
               },
               "bottomLine": {
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": null,
+                "stroke": "#333333"
               }
             },
             "visible": true,
