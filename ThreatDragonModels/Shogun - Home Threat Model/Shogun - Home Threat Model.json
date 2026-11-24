@@ -465,7 +465,7 @@
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": "4 3"
               }
             },
             "visible": true,
@@ -559,8 +559,8 @@
               "name": "MusicBrainz",
               "description": "",
               "isTrustBoundary": false,
-              "outOfScope": false,
-              "reasonOutOfScope": "",
+              "outOfScope": true,
+              "reasonOutOfScope": "Public metadata service run by someone else; Shogun only reads public data from it.",
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
@@ -582,7 +582,7 @@
               "body": {
                 "stroke": "#333333",
                 "strokeWidth": 1.5,
-                "strokeDasharray": null
+                "strokeDasharray": "4 3"
               }
             },
             "visible": true,
@@ -676,8 +676,8 @@
               "name": "TMDB",
               "description": "",
               "isTrustBoundary": false,
-              "outOfScope": false,
-              "reasonOutOfScope": "",
+              "outOfScope": true,
+              "reasonOutOfScope": "Public metadata service run by someone else; Shogun only reads public data from it.",
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
@@ -798,7 +798,7 @@
               "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
-              "isWebApplication": false,
+              "isWebApplication": true,
               "privilegeLevel": "",
               "threats": []
             }
@@ -1164,7 +1164,7 @@
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
-              "storesCredentials": false,
+              "storesCredentials": true,
               "storesInventory": false,
               "threats": []
             }
@@ -1421,9 +1421,9 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS/JSON, HLS, SignalR WebSocket + server pass",
               "threats": [],
               "trustBoundaryIds": [
                 "d759234e-d692-4228-afd8-db5583777816",
@@ -1473,7 +1473,7 @@
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
-              "protocol": "",
+              "protocol": "console and logs",
               "threats": [],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
@@ -1522,7 +1522,7 @@
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
-              "protocol": "",
+              "protocol": "file system",
               "threats": [],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
@@ -1569,9 +1569,9 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS/JSON + server credential; HTTPS (JWKS)",
               "threats": [],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
@@ -1621,7 +1621,7 @@
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
-              "protocol": "",
+              "protocol": "child process",
               "threats": [],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
@@ -1671,7 +1671,7 @@
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
-              "protocol": "",
+              "protocol": "EF Core (SQLite)",
               "threats": [],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
@@ -1726,7 +1726,7 @@
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
-              "protocol": "",
+              "protocol": "file system",
               "threats": [],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
@@ -1781,7 +1781,7 @@
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
-              "protocol": "",
+              "protocol": "file system",
               "threats": [],
               "trustBoundaryIds": []
             },
@@ -1828,7 +1828,7 @@
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
-              "protocol": "",
+              "protocol": "file system",
               "threats": [],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
@@ -1864,7 +1864,7 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null,
+                "strokeDasharray": "4 3",
                 "strokeWidth": 1.5
               }
             },
@@ -1876,14 +1876,14 @@
               "type": "tm.Flow",
               "name": "looks up music details",
               "description": "HTTPS/JSON; encrypted, public network",
-              "outOfScope": false,
+              "outOfScope": true,
               "isTrustBoundary": false,
-              "reasonOutOfScope": "",
+              "reasonOutOfScope": "Only public music data is read from MusicBrainz.",
               "hasOpenThreats": false,
               "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS/JSON",
               "threats": [],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
@@ -1919,7 +1919,7 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null,
+                "strokeDasharray": "4 3",
                 "strokeWidth": 1.5
               }
             },
@@ -1931,14 +1931,14 @@
               "type": "tm.Flow",
               "name": "looks up movie\nand show details",
               "description": "HTTPS + owner's API key; encrypted, public network",
-              "outOfScope": false,
+              "outOfScope": true,
               "isTrustBoundary": false,
-              "reasonOutOfScope": "",
+              "reasonOutOfScope": "Only public movie and show data is read. The owner's API key goes only to TMDB, which issued it.",
               "hasOpenThreats": false,
               "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTPS/JSON + owner's API key",
               "threats": [],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
@@ -2084,7 +2084,7 @@
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
-              "storesCredentials": false,
+              "storesCredentials": true,
               "storesInventory": false,
               "threats": []
             }
