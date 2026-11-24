@@ -21,8 +21,72 @@
         "cells": [
           {
             "position": {
-              "x": 310,
-              "y": 150
+              "x": 214.99999999999864,
+              "y": 335
+            },
+            "size": {
+              "width": 340,
+              "height": 210
+            },
+            "attrs": {
+              "label": {
+                "text": "User's Browser"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "d759234e-d692-4228-afd8-db5583777816",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "User's Browser",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": [
+                "dad248a6-73d6-4d53-8792-d694e8535fe3"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 811.25,
+              "y": 291.00000000000136
+            },
+            "size": {
+              "width": 850,
+              "height": 290
+            },
+            "attrs": {
+              "label": {
+                "text": "Owner's Hardware"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "31bd7751-3c1f-4cd2-9347-eb896b21e031",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Owner's Hardware",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": [
+                "e96c3e27-a1dd-4665-89d8-789be8393dfc",
+                "7ee96088-507a-40aa-b776-681caa3fe23b",
+                "2a87bff2-930b-4cc1-b590-9b26824d7a31",
+                "42556eef-7216-432d-8f61-f9b50fcc2187",
+                "079a2ef2-59c0-4289-961d-4f0c6a60960a"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 1180,
+              "y": 50
             },
             "size": {
               "width": 112.5,
@@ -40,6 +104,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -123,7 +188,6 @@
               ]
             },
             "id": "840a0f8a-0a5e-472b-81f1-7245d5bc7faf",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "Member",
@@ -138,8 +202,8 @@
           },
           {
             "position": {
-              "x": 462.5,
-              "y": 150
+              "x": 1008.5,
+              "y": 50
             },
             "size": {
               "width": 112.5,
@@ -157,6 +221,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -250,13 +315,12 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "zIndex": 2
+            }
           },
           {
             "position": {
-              "x": 604,
-              "y": 150
+              "x": 827.5,
+              "y": 50
             },
             "size": {
               "width": 112.5,
@@ -274,6 +338,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -367,13 +432,12 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "zIndex": 3
+            }
           },
           {
             "position": {
-              "x": 746,
-              "y": 150
+              "x": 665,
+              "y": 50
             },
             "size": {
               "width": 112.5,
@@ -391,6 +455,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -484,13 +549,12 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "zIndex": 4
+            }
           },
           {
             "position": {
-              "x": 898,
-              "y": 150
+              "x": 500,
+              "y": 50
             },
             "size": {
               "width": 112.5,
@@ -508,6 +572,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -601,13 +666,12 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "zIndex": 5
+            }
           },
           {
             "position": {
-              "x": 430,
-              "y": 280
+              "x": 324.99999999999864,
+              "y": 390
             },
             "size": {
               "width": 120,
@@ -625,6 +689,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 6,
             "ports": {
               "groups": {
                 "top": {
@@ -708,7 +773,6 @@
               ]
             },
             "id": "dad248a6-73d6-4d53-8792-d694e8535fe3",
-            "zIndex": 6,
             "data": {
               "type": "tm.Process",
               "name": "Shogun Web",
@@ -726,8 +790,8 @@
           },
           {
             "position": {
-              "x": 604,
-              "y": 280
+              "x": 860,
+              "y": 386.00000000000136
             },
             "size": {
               "width": 120,
@@ -745,6 +809,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 7,
             "ports": {
               "groups": {
                 "top": {
@@ -841,13 +906,12 @@
               "isWebApplication": false,
               "privilegeLevel": "",
               "threats": []
-            },
-            "zIndex": 7
+            }
           },
           {
             "position": {
-              "x": 794,
-              "y": 280
+              "x": 1060,
+              "y": 386.00000000000136
             },
             "size": {
               "width": 120,
@@ -865,6 +929,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 8,
             "ports": {
               "groups": {
                 "top": {
@@ -961,13 +1026,12 @@
               "isWebApplication": false,
               "privilegeLevel": "",
               "threats": []
-            },
-            "zIndex": 8
+            }
           },
           {
             "position": {
-              "x": 422.5,
-              "y": 450
+              "x": 1278.5,
+              "y": 360
             },
             "size": {
               "width": 120,
@@ -988,6 +1052,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 9,
             "ports": {
               "groups": {
                 "top": {
@@ -1071,7 +1136,6 @@
               ]
             },
             "id": "2a87bff2-930b-4cc1-b590-9b26824d7a31",
-            "zIndex": 9,
             "data": {
               "type": "tm.Store",
               "name": "Server Database",
@@ -1090,8 +1154,8 @@
           },
           {
             "position": {
-              "x": 600.25,
-              "y": 450
+              "x": 1388,
+              "y": 470
             },
             "size": {
               "width": 120,
@@ -1112,6 +1176,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 10,
             "ports": {
               "groups": {
                 "top": {
@@ -1209,13 +1274,12 @@
               "storesCredentials": false,
               "storesInventory": false,
               "threats": []
-            },
-            "zIndex": 10
+            }
           },
           {
             "position": {
-              "x": 778,
-              "y": 450
+              "x": 1480,
+              "y": 360
             },
             "size": {
               "width": 120,
@@ -1236,6 +1300,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -1333,8 +1398,7 @@
               "storesCredentials": false,
               "storesInventory": false,
               "threats": []
-            },
-            "zIndex": 11
+            }
           }
         ]
       }
