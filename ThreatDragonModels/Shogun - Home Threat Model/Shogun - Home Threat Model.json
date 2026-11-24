@@ -80,7 +80,14 @@
               "crossingFlows": [
                 "aefa027b-c2e6-4965-b6f0-4ee59b69c20b",
                 "24b03289-e609-4c95-ab11-fedb35fedfdf",
-                "549474f4-dd7b-4524-8548-a7decc7fe646"
+                "549474f4-dd7b-4524-8548-a7decc7fe646",
+                "cd5f958c-ddf0-4866-b623-0bc484717935",
+                "820d8a92-b170-402f-a96e-6f11f7f51994",
+                "414c5863-86c8-473e-8dda-491286dc696d",
+                "cfbced38-0ca7-4ca9-a96e-421cb177805b",
+                "67e76c9c-8a3b-4288-b94d-3b0c8bb32a19",
+                "f0540a56-4074-477d-9c72-2c3b2f38044b",
+                "15e33bd4-85db-4ff4-a75f-8cf1afe03fe9"
               ],
               "containedElements": [
                 "e96c3e27-a1dd-4665-89d8-789be8393dfc",
@@ -327,8 +334,8 @@
           },
           {
             "position": {
-              "x": 1010,
-              "y": 660
+              "x": 980,
+              "y": 650
             },
             "size": {
               "width": 112.5,
@@ -444,8 +451,8 @@
           },
           {
             "position": {
-              "x": 1433.75,
-              "y": 660
+              "x": 530,
+              "y": 650
             },
             "size": {
               "width": 112.5,
@@ -561,8 +568,8 @@
           },
           {
             "position": {
-              "x": 1213.75,
-              "y": 660
+              "x": 747.5,
+              "y": 650
             },
             "size": {
               "width": 112.5,
@@ -1038,8 +1045,8 @@
           },
           {
             "position": {
-              "x": 1430,
-              "y": 330
+              "x": 1433.75,
+              "y": 466.00000000000136
             },
             "size": {
               "width": 120,
@@ -1526,9 +1533,432 @@
             }
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "register, heartbeat, member list\npush requests, JWKS keys",
+              "description": "HTTPS + server credential; encrypted, public network",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "31bd7751-3c1f-4cd2-9347-eb896b21e031"
+              ]
+            },
+            "labels": [
+              "register, heartbeat, member list\npush requests, JWKS keys"
+            ],
+            "id": "cd5f958c-ddf0-4866-b623-0bc484717935",
+            "source": {
+              "cell": "842007c7-5557-459d-b10a-51c46a12e284",
+              "port": "a4cba14e-6372-4548-b72f-0bab2362b3f7"
+            },
+            "target": {
+              "cell": "e96c3e27-a1dd-4665-89d8-789be8393dfc",
+              "port": "581fa762-dfb7-46f1-a1c9-eb8ffd11372b"
+            },
+            "vertices": [
+              {
+                "x": 960,
+                "y": 560
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "starts it to probe and convert\nmedia",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "31bd7751-3c1f-4cd2-9347-eb896b21e031"
+              ]
+            },
+            "labels": [
+              "starts it to probe and convert\nmedia"
+            ],
+            "id": "820d8a92-b170-402f-a96e-6f11f7f51994",
+            "source": {
+              "cell": "842007c7-5557-459d-b10a-51c46a12e284",
+              "port": "b35ecdd9-7505-41fb-aae5-c38ddbd4f28f"
+            },
+            "target": {
+              "cell": "7ee96088-507a-40aa-b776-681caa3fe23b",
+              "port": "581fa762-dfb7-46f1-a1c9-eb8ffd11372b"
+            },
+            "vertices": [
+              {
+                "x": 1220,
+                "y": 620
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "reads and writes library,\nchat, member data",
+              "description": "EF core",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "31bd7751-3c1f-4cd2-9347-eb896b21e031"
+              ]
+            },
+            "labels": [
+              "reads and writes library,\nchat, member data"
+            ],
+            "id": "414c5863-86c8-473e-8dda-491286dc696d",
+            "source": {
+              "cell": "842007c7-5557-459d-b10a-51c46a12e284",
+              "port": "b35ecdd9-7505-41fb-aae5-c38ddbd4f28f"
+            },
+            "target": {
+              "cell": "2a87bff2-930b-4cc1-b590-9b26824d7a31",
+              "port": "18fe4fe2-58ce-4ccf-8c17-55f6cea591e6"
+            },
+            "vertices": [
+              {
+                "x": 1230,
+                "y": 530
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "scans for new\nand changed files",
+              "description": "file system",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "31bd7751-3c1f-4cd2-9347-eb896b21e031"
+              ]
+            },
+            "labels": [
+              "scans for new\nand changed files"
+            ],
+            "id": "cfbced38-0ca7-4ca9-a96e-421cb177805b",
+            "source": {
+              "cell": "842007c7-5557-459d-b10a-51c46a12e284",
+              "port": "a4cba14e-6372-4548-b72f-0bab2362b3f7"
+            },
+            "target": {
+              "cell": "42556eef-7216-432d-8f61-f9b50fcc2187",
+              "port": "929ad461-b001-4e6c-b7c6-1b9a2a3ddab1"
+            },
+            "vertices": [
+              {
+                "x": 1060,
+                "y": 360
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "reads\nmedia\nfolders",
+              "description": "file system",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "reads\nmedia\nfolders"
+            ],
+            "id": "cf7b88c1-01eb-41b6-b0b2-c832d85f8b9b",
+            "source": {
+              "cell": "7ee96088-507a-40aa-b776-681caa3fe23b"
+            },
+            "target": {
+              "cell": "42556eef-7216-432d-8f61-f9b50fcc2187",
+              "port": "18fe4fe2-58ce-4ccf-8c17-55f6cea591e6"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "reads and writes the credential and server ID",
+              "description": "file system",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "31bd7751-3c1f-4cd2-9347-eb896b21e031"
+              ]
+            },
+            "labels": [
+              "reads and writes the credential and server ID"
+            ],
+            "id": "67e76c9c-8a3b-4288-b94d-3b0c8bb32a19",
+            "source": {
+              "cell": "842007c7-5557-459d-b10a-51c46a12e284",
+              "port": "b35ecdd9-7505-41fb-aae5-c38ddbd4f28f"
+            },
+            "target": {
+              "cell": "079a2ef2-59c0-4289-961d-4f0c6a60960a",
+              "port": "71bc419b-5d43-4edf-a098-c01188269149"
+            },
+            "vertices": [
+              {
+                "x": 1370,
+                "y": 670
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "looks up music details",
+              "description": "HTTPS/JSON; encrypted, public network",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "31bd7751-3c1f-4cd2-9347-eb896b21e031"
+              ]
+            },
+            "labels": [
+              "looks up music details"
+            ],
+            "id": "f0540a56-4074-477d-9c72-2c3b2f38044b",
+            "source": {
+              "cell": "e96c3e27-a1dd-4665-89d8-789be8393dfc",
+              "port": "581fa762-dfb7-46f1-a1c9-eb8ffd11372b"
+            },
+            "target": {
+              "cell": "4a4cfa8a-69cf-4d00-9c96-b9544a3e85e8",
+              "port": "a4cba14e-6372-4548-b72f-0bab2362b3f7"
+            },
+            "vertices": [
+              {
+                "x": 630,
+                "y": 510
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "looks up movie\nand show details",
+              "description": "HTTPS + owner's API key; encrypted, public network",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "31bd7751-3c1f-4cd2-9347-eb896b21e031"
+              ]
+            },
+            "labels": [
+              "looks up movie\nand show details"
+            ],
+            "id": "15e33bd4-85db-4ff4-a75f-8cf1afe03fe9",
+            "source": {
+              "cell": "e96c3e27-a1dd-4665-89d8-789be8393dfc",
+              "port": "581fa762-dfb7-46f1-a1c9-eb8ffd11372b"
+            },
+            "target": {
+              "cell": "208a3483-2901-407b-9760-96c3e0853204",
+              "port": "a4cba14e-6372-4548-b72f-0bab2362b3f7"
+            },
+            "vertices": [
+              {
+                "x": 700,
+                "y": 580
+              }
+            ]
+          },
+          {
             "position": {
-              "x": 1430,
-              "y": 450
+              "x": 1433.75,
+              "y": 330
             },
             "size": {
               "width": 120,
