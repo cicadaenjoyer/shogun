@@ -112,8 +112,8 @@
                 "text": "Member"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -210,9 +210,40 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "2bfa9658-d91d-44a5-be22-c8eed1989a96",
+                  "title": "Stolen Pass",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Someone uses another member's pass, for example from a shared computer",
+                  "mitigation": "Passes expire after 12 hours and work on only one server.\n\nPLANNED: Phase 2A Step 9.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": ""
+                },
+                {
+                  "id": "e8605a34-36b7-4543-b0d8-a1e9f98353b5",
+                  "title": "Deleted Abuse",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Repudiation",
+                  "description": "A member posts abuse, deletes it, and later denies it",
+                  "mitigation": "Messages are flagged as deleted instead of erased, and reports are saved on the Server.\n\nPLANNED: Phase 6 Step 4 (deleted flag) and Step 7 (reports). CHECK: decide whether the owner can see the text of a deleted message.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 1
+              }
             }
           },
           {
@@ -346,8 +377,8 @@
                 "text": "Shogun Hub"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -444,9 +475,27 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "b49b60ca-639d-4222-a0ce-f0359446e6b3",
+                  "title": "Fake Hub",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Spoofing",
+                  "description": "The Server is tricked into talking to an impostor Hub",
+                  "mitigation": "The Hub's address is built into the Server, and it is HTTPS only.\n\nPLANNED: Phase 2A Steps 8 and 10.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -1218,14 +1267,14 @@
                 "text": "Server Database"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "strokeWidth": 2.5,
                 "strokeDasharray": null,
-                "stroke": "#333333"
+                "stroke": "red"
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "strokeWidth": 2.5,
                 "strokeDasharray": null,
-                "stroke": "#333333"
+                "stroke": "red"
               }
             },
             "visible": true,
@@ -1321,13 +1370,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": true,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "c8a86b9e-d0c1-4eba-a3e9-6d4edffb0393",
+                  "title": "Database Copies",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "The database file or its backups expose the owner's TMDB key, chat, and member data",
+                  "mitigation": "Owner-only permissions on the data folder and on backups.\n\nDONE: Phase 1B Step 6 (data folder). PLANNED: Phase 5 Step 9 (backups).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1344,14 +1413,14 @@
                 "text": "Media Folders"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "strokeWidth": 2.5,
                 "strokeDasharray": null,
-                "stroke": "#333333"
+                "stroke": "red"
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "strokeWidth": 2.5,
                 "strokeDasharray": null,
-                "stroke": "#333333"
+                "stroke": "red"
               }
             },
             "visible": true,
@@ -1447,13 +1516,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "82d195ee-6c62-407d-b4eb-eb6e6f19f655",
+                  "title": "Damaged Media",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A Server bug or exploit changes or deletes the owner's media",
+                  "mitigation": "Media mounted read-only; the service user can only read it.\n\nPLANNED: Phase 5 Steps 4-5.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1487,10 +1576,29 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "9c57d242-25e4-43ec-8e6d-36f1cb74c3f7",
+                  "title": "Person Using the App",
+                  "status": "NotApplicable",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "A person using the app in their own browser",
+                  "mitigation": "N/A: not network traffic. What the browser sends onward is covered on Shogun Web -> Shogun Server.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "d759234e-d692-4228-afd8-db5583777816"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "uses"
@@ -1536,10 +1644,29 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "40955c17-a646-4da2-b4e8-d45a3413c1e4",
+                  "title": "Person Using the App",
+                  "status": "NotApplicable",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "A person using the app in their own browser",
+                  "mitigation": "N/A: not network traffic. What the browser sends onward is covered on Shogun Web -> Shogun Server.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "d759234e-d692-4228-afd8-db5583777816"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "uses"
@@ -1558,7 +1685,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1566,7 +1693,7 @@
                   "name": ""
                 },
                 "strokeDasharray": null,
-                "strokeWidth": 1.5
+                "strokeWidth": 2.5
               }
             },
             "width": 200,
@@ -1580,16 +1707,74 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": true,
               "isPublicNetwork": true,
               "protocol": "HTTPS/JSON, HLS, SignalR WebSocket + server pass",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "8da126c1-5c66-48f4-9642-a6df45806637",
+                  "title": "Traffic in Transit",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Traffic between the browser and the Server is read or changed on the way",
+                  "mitigation": "HTTPS on the remote access network.\n\nPLANNED: Phase 5 Step 6.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                },
+                {
+                  "id": "4f0bd77e-52f9-408d-9b28-1d8dc498d01d",
+                  "title": "Path Traversal",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "A request containing ../../ reads files outside the media folders",
+                  "mitigation": "Files are looked up by MediaFile ID, never by a path; the resolved path must be inside a library root.\n\nPLANNED: Phase 3 Step 2.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                },
+                {
+                  "id": "1067f86b-ee9b-4638-a2d0-0154c4405a68",
+                  "title": "Leaked Stream Link",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A signed stream URL gets shared and someone who is not a member plays it",
+                  "mitigation": "Signed stream URLs are short-lived and tied to one file.\n\nPLANNED: Phase 3 Step 3.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                },
+                {
+                  "id": "d67f56a4-3b47-44c0-aa34-5a45fb9b1347",
+                  "title": "Chat Flood",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Denial of service",
+                  "description": "One member floods chat with messages",
+                  "mitigation": "More than 30 messages a minute blocks sending for 10 minutes.\n\nPLANNED: Phase 6 Step 5.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "d759234e-d692-4228-afd8-db5583777816",
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "calls the API, streams, chats"
@@ -1608,7 +1793,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1616,7 +1801,7 @@
                   "name": ""
                 },
                 "strokeDasharray": null,
-                "strokeWidth": 1.5
+                "strokeWidth": 2.5
               }
             },
             "width": 200,
@@ -1630,15 +1815,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "console and logs",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "ac106ccb-95d2-4df3-900a-eb4863528387",
+                  "title": "Claim Code in Logs",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Anyone who can read the console or logs sees the claim code",
+                  "mitigation": "The code expires in 30 minutes and works only once.\n\nPLANNED: Phase 2A Step 6.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "reads the claim code"
@@ -1684,10 +1888,29 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "file system",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "7d2cea61-047c-475e-a24c-5e3fbb4370d1",
+                  "title": "Owner's Own Files",
+                  "status": "NotApplicable",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "The owner copies their own files into their own folders",
+                  "mitigation": "N/A: the owner controls both ends. Harmful files are covered by Crafted Media File and Argument Injection.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "adds media files"
@@ -1733,10 +1956,29 @@
               "isEncrypted": true,
               "isPublicNetwork": true,
               "protocol": "HTTPS/JSON + server credential; HTTPS (JWKS)",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "18cdcb29-7db5-450d-9717-99bf249edb7c",
+                  "title": "Hub Connection",
+                  "status": "NotApplicable",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Covered in the Hub model",
+                  "mitigation": "N/A here: see the Shogun Server threats (Server Credentials, Squatting, Fake Public Keys) in the Hub model.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "register, heartbeat, member list\npush requests, JWKS keys"
@@ -1756,7 +1998,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1764,7 +2006,7 @@
                   "name": ""
                 },
                 "strokeDasharray": null,
-                "strokeWidth": 1.5
+                "strokeWidth": 2.5
               }
             },
             "width": 200,
@@ -1778,15 +2020,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "child process",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "6178948e-50ce-4235-b9fd-2fe17d95d0dd",
+                  "title": "Argument Injection",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "A file name such as \"-i evil.mp4\" is read as an ffmpeg option and changes what ffmpeg does",
+                  "mitigation": "Pass ffmpeg its arguments as a list (ProcessStartInfo.ArgumentList), never as one string or through a shell; put \"--\" or a full path before file names.\n\nMISSING: not in Phase 2B Step 3 or Phase 3. Add it to Phase 3 Step 6.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "starts it to probe and convert\nmedia"
@@ -1833,10 +2094,29 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "EF Core (SQLite)",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "764af69c-90a8-48d8-849f-a27bbe7ecb01",
+                  "title": "Same Machine",
+                  "status": "NotApplicable",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Both ends are on the owner's machine",
+                  "mitigation": "N/A: no network involved. Threats are on the stores and processes instead.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "reads and writes library,\nchat, member data"
@@ -1888,10 +2168,29 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "file system",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "b2a2bab7-b101-42ac-9366-931d7e959e7b",
+                  "title": "Same Machine",
+                  "status": "NotApplicable",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Both ends are on the owner's machine",
+                  "mitigation": "N/A: no network involved. Threats are on the stores and processes instead.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "scans for new\nand changed files"
@@ -1943,8 +2242,27 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "file system",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "be1a2382-a2ec-495b-a04a-dcd9fe9d6129",
+                  "title": "Same Machine",
+                  "status": "NotApplicable",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Both ends are on the owner's machine",
+                  "mitigation": "N/A: no network involved. Threats are on the stores and processes instead.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "reads media files"
@@ -1990,10 +2308,29 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "file system",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "133d8b2c-2b56-4cb8-a283-8cbc28d0f4e4",
+                  "title": "Same Machine",
+                  "status": "NotApplicable",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Both ends are on the owner's machine",
+                  "mitigation": "N/A: no network involved. Threats are on the stores and processes instead.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "31bd7751-3c1f-4cd2-9347-eb896b21e031"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "reads and writes the credential and server ID"
@@ -2247,7 +2584,27 @@
               "isSigned": false,
               "storesCredentials": true,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "44d1d4d6-80ff-425f-bca0-be8502d2d838",
+                  "title": "Credential File",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Other user accounts on the machine read the server credential",
+                  "mitigation": "Owner-only file permissions on the data folder.\n\nDONE: Phase 1B Step 6.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           }
         ]
@@ -2255,6 +2612,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 11
+    "threatTop": 31
   }
 }
