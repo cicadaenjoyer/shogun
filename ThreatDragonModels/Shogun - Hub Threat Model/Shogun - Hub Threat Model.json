@@ -226,7 +226,7 @@
                   "severity": "Medium",
                   "type": "Spoofing",
                   "description": "Password guessing, reused passwords, or a fake Shogun sign-in page let someone sign in as another user",
-                  "mitigation": "Firebase Auth throttles repeated sign-in attempts (provided by Firebase). Offering Google or Apple sign-in avoids passwords. Phishing itself cannot be fully prevented.\n\nCHECK: Phase 2A Step 2 for which sign-in methods and protections are switched on.",
+                  "mitigation": "Firebase Auth throttles repeated sign-in attempts (provided by Firebase). Offering Google or Apple sign-in avoids passwords. Phishing itself cannot be fully prevented.\n\nPLANNED: Phase 2A Step 2 (Google sign-in, email enumeration protection, a 12-character password policy, and verified email required for important functions).",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 18,
